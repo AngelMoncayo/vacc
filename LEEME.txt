@@ -7,11 +7,14 @@ Contenido:
 - VACC Conocenos.dc.html .... Conócenos
 - VACC Programas.dc.html .... Programas y servicios
 - VACC Eventos.dc.html ...... Eventos
+- VACC Noticias.dc.html ..... Noticias y galería de fotos
 - VACC Mission Trip.dc.html . Mission Trip Vilcabamba
+- VACC Recursos.dc.html ..... Recursos y guías de salud
 - VACC Contacto.dc.html ..... Contacto (formulario -> WhatsApp)
 - VACC Privacidad.dc.html ... Política de privacidad
 - support.js ............... motor del sitio (necesario)
-- assets/ ................. logos e imágenes locales
+- assets/ ................. logos, imágenes y PDFs locales
+- assets/photos/ .......... todas las fotos del sitio (locales)
 
 CÓMO PUBLICARLO
 ---------------
@@ -24,8 +27,8 @@ NOTAS
 -----
 - Sitio bilingüe (ES/EN): el botón del idioma se recuerda entre páginas.
 - El formulario de contacto abre WhatsApp con el mensaje escrito.
-- Algunas fotos se cargan del servidor anterior de vacc.ec. Si lo das de
-  baja, esas imágenes se mostrarán como un panel con el logo (no se rompen).
-  Para hacerlas permanentes, reemplaza las URLs por archivos en assets/.
+- TODAS las fotos ahora son locales (carpeta assets/photos/). El sitio ya
+  no depende del servidor anterior de vacc.ec: funciona aunque ese
+  servidor esté fuera de línea.
 
 Contacto: WhatsApp +593 99 371 4307 · clasomel@gmail.com

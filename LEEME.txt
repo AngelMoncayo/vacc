@@ -1,0 +1,31 @@
+SITIO WEB — Vilcabamba Adventist Community Center (VACC)
+=======================================================
+
+Contenido:
+- index.html ............... abre automáticamente la portada
+- VACC Inicio.dc.html ....... Inicio
+- VACC Conocenos.dc.html .... Conócenos
+- VACC Programas.dc.html .... Programas y servicios
+- VACC Eventos.dc.html ...... Eventos
+- VACC Mission Trip.dc.html . Mission Trip Vilcabamba
+- VACC Contacto.dc.html ..... Contacto (formulario -> WhatsApp)
+- VACC Privacidad.dc.html ... Política de privacidad
+- support.js ............... motor del sitio (necesario)
+- assets/ ................. logos e imágenes locales
+
+CÓMO PUBLICARLO
+---------------
+Sube TODA esta carpeta (con sus subcarpetas) a tu hosting.
+La página principal es index.html.
+Mantén todos los archivos juntos: support.js y la carpeta assets/
+deben quedar al lado de los archivos .dc.html.
+
+NOTAS
+-----
+- Sitio bilingüe (ES/EN): el botón del idioma se recuerda entre páginas.
+- El formulario de contacto abre WhatsApp con el mensaje escrito.
+- Algunas fotos se cargan del servidor anterior de vacc.ec. Si lo das de
+  baja, esas imágenes se mostrarán como un panel con el logo (no se rompen).
+  Para hacerlas permanentes, reemplaza las URLs por archivos en assets/.
+
+Contacto: WhatsApp +593 99 371 4307 · clasomel@gmail.com

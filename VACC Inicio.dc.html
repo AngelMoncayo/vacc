@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  @keyframes vaccPop { from { transform: translateY(16px) scale(0.985); } to { transform: none; } }
+  @media (max-width: 920px) {
+    .vacc-nav { display: none !important; }
+    .vacc-header { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
+  }
+  @media (max-width: 860px) {
+    .vacc-two { grid-template-columns: 1fr !important; gap: 44px !important; }
+    .vacc-sec { padding-top: 72px !important; padding-bottom: 72px !important; }
+  }
+  @media (max-width: 760px) {
+    .vacc-stats { grid-template-columns: repeat(2, 1fr) !important; gap: 22px !important; }
+    .vacc-foot { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+  }
+  @media (max-width: 560px) {
+    .vacc-modal { grid-template-columns: 1fr !important; }
+    .vacc-modal-img { min-height: 170px !important; }
+    .vacc-foot { grid-template-columns: 1fr !important; }
+    .vacc-brandsub { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'Hanken Grotesk', system-ui, sans-serif; color: #26241F; background: #F6F1E7; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <!-- ===================== HEADER ===================== -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(246,241,231,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(28,58,42,0.12);">
+    <div class="vacc-header" style="max-width: 1180px; margin: 0 auto; padding: 0 32px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="assets/vacc-mark-green.png" alt="VACC" style="height: 46px; width: auto; display: block;">
+        <span style="display: flex; flex-direction: column; line-height: 1.08;">
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; color: #1C3A2A;">Vilcabamba Adventist</span>
+          <span class="vacc-brandsub" style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6E685B; font-weight: 700; margin-top: 2px;">Community Center</span>
+        </span>
+      </a>
+
+      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 24px;">
+        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #C26B41; font-size: 14.5px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navHome }}</a>
+        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
+        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="display: flex; align-items: center; border: 1px solid rgba(28,58,42,0.2); border-radius: 999px; padding: 3px; gap: 2px;">
+          <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: {{ esBg }}; color: {{ esColor }};">ES</button>
+          <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: {{ enBg }}; color: {{ enColor }};">EN</button>
+        </div>
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 14px; font-weight: 700; padding: 11px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(194,107,65,0.32);" style-hover="background: #A8552F;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.8c.1.1.1.3 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.2.2.1.4.1.6-.1l.6-.8c.2-.3.4-.2.6-.1l1.7.8c.2.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+          {{ t.ctaWrite }}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="top" style="background: #1C3A2A; color: #F6F1E7;">
+    <div style="height: clamp(340px, 56vh, 560px); background-image: url('assets/vacc-hero.png'); background-size: cover; background-position: center; position: relative;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,42,30,0.10), rgba(20,42,30,0.20) 55%, #1C3A2A 100%);"></div>
+    </div>
+    <div style="max-width: 880px; margin: 0 auto; padding: 30px 32px 70px; text-align: center;">
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.45); border-radius: 999px; margin-bottom: 26px; background: rgba(214,162,73,0.08);">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #D6A249;"></span>
+        <span style="font-size: 11.5px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A; white-space: nowrap;">{{ t.heroEyebrow }}</span>
+      </div>
+      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 68px); line-height: 1.06; letter-spacing: -0.5px; margin: 0 0 22px; text-wrap: balance;">{{ t.heroTag }}</h1>
+      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.6; color: rgba(246,241,231,0.85); max-width: 600px; margin: 0 auto 36px;">{{ t.heroSub }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+        <a href="#programas" style="display: inline-flex; align-items: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 16px 28px; border-radius: 999px; box-shadow: 0 10px 28px rgba(194,107,65,0.4);" style-hover="background: #A8552F; transform: translateY(-2px);">
+          {{ t.heroBtnPrograms }}
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; background: rgba(246,241,231,0.08); color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 16px 28px; border-radius: 999px; border: 1px solid rgba(246,241,231,0.4);" style-hover="background: rgba(246,241,231,0.18);">{{ t.heroBtnDonate }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRUST BAND ===================== -->
+  <section style="background: #EFEAD9;">
+    <div class="vacc-stats" style="max-width: 1180px; margin: 0 auto; padding: 34px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; color: #1C3A2A;">+30</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat1 }}</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; color: #1C3A2A;">9</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat2 }}</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; color: #1C3A2A;">8</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat3 }}</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <span style="font-family: 'Newsreader', serif; font-size: 32px; font-weight: 600; color: #1C3A2A;">1</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat4 }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section id="nosotros" class="vacc-sec" style="background: #F6F1E7; padding: 110px 0;">
+    <div class="vacc-two" style="max-width: 1180px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 70px; align-items: center;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px;">
+          <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
+          <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.aboutEyebrow }}</span>
+        </div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.5px; margin: 0 0 26px; color: #1C3A2A;">{{ t.aboutTitle }}</h2>
+        <p style="font-size: 17px; line-height: 1.7; color: #4A463C; margin: 0 0 18px;">{{ t.aboutP1 }}</p>
+        <p style="font-size: 17px; line-height: 1.7; color: #4A463C; margin: 0 0 32px;">{{ t.aboutP2 }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 10px; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 12px; padding: 12px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" fill="#C26B41"/></svg>
+            <span style="font-size: 14px; font-weight: 600; color: #1C3A2A;">{{ t.chip1 }}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 12px; padding: 12px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 16.5 7.1 18.2l.9-5.5-4-3.9 5.5-.8z" fill="#D6A249"/></svg>
+            <span style="font-size: 14px; font-weight: 600; color: #1C3A2A;">{{ t.chip2 }}</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 12px; padding: 12px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" fill="#2E5740"/><circle cx="16" cy="9" r="2.4" fill="#8FAE8B"/><path d="M4 19c0-2.8 2.2-5 5-5s5 2.2 5 5M14 19c0-2 .8-3.4 2-4.2 2 .2 4 1.8 4 4.2" stroke="#2E5740" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <span style="font-size: 14px; font-weight: 600; color: #1C3A2A;">{{ t.chip3 }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="position: relative;">
+        <div style="position: absolute; top: -18px; right: -18px; background: #D6A249; color: #1C3A2A; padding: 14px 18px; border-radius: 14px; box-shadow: 0 12px 30px rgba(214,162,73,0.4); z-index: 2; max-width: 175px;">
+          <span style="font-family: 'Newsreader', serif; font-style: italic; font-size: 17px; font-weight: 600; line-height: 1.2; display: block;">{{ t.aboutBadge }}</span>
+        </div>
+        <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 28px 60px rgba(28,58,42,0.22); background: #2E5740;">
+          <img src="https://vacc.ec/web/image/1352-1675224e/WhatsApp%20Image%202024-08-19%20at%207.56.28%20PM.webp" alt="Comunidad VACC" style="width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROGRAMAS ===================== -->
+  <section id="programas" class="vacc-sec" style="background: #FBF8F1; padding: 110px 0; border-top: 1px solid rgba(28,58,42,0.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 50px; flex-wrap: wrap;">
+        <div style="max-width: 620px;">
+          <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 20px;">
+            <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
+            <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.progEyebrow }}</span>
+          </div>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.5px; margin: 0; color: #1C3A2A;">{{ t.progTitle }}</h2>
+        </div>
+        <a href="VACC Programas.dc.html" style="display: inline-flex; align-items: center; gap: 8px; color: #1C3A2A; text-decoration: none; font-weight: 700; font-size: 15px; border-bottom: 2px solid #C26B41; padding-bottom: 4px;" style-hover="color: #C26B41;">
+          {{ t.progViewAll }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 26px;">
+
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: inherit; background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 20px 40px rgba(28,58,42,0.16);">
+          <div style="height: 200px; overflow: hidden; background: #2E5740;"><img src="https://vacc.ec/web/image/2217-9905007b/WhatsApp%20Image%202026-02-19%20at%209.10.17%20PM.webp" alt="Mission Trip" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="padding: 24px 24px 26px;">
+            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.p1tag }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 23px; margin: 10px 0 10px; color: #1C3A2A; line-height: 1.2;">{{ t.p1title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.p1desc }}</p>
+          </div>
+        </a>
+
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: inherit; background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 20px 40px rgba(28,58,42,0.16);">
+          <div style="height: 200px; overflow: hidden; background: #2E5740;"><img src="https://vacc.ec/web/image/2061-0117f6fb/WhatsApp%20Image%202025-10-12%20at%2012.43.41%20PM.webp" alt="Panadería saludable" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="padding: 24px 24px 26px;">
+            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.p2tag }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 23px; margin: 10px 0 10px; color: #1C3A2A; line-height: 1.2;">{{ t.p2title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.p2desc }}</p>
+          </div>
+        </a>
+
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: inherit; background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 20px 40px rgba(28,58,42,0.16);">
+          <div style="height: 200px; overflow: hidden; background: #2E5740;"><img src="https://vacc.ec/web/image/1991-2369c4cb/aoak.webp" alt="Feria de la salud" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="padding: 24px 24px 26px;">
+            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.p3tag }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 23px; margin: 10px 0 10px; color: #1C3A2A; line-height: 1.2;">{{ t.p3title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.p3desc }}</p>
+          </div>
+        </a>
+
+        <a href="#recursos" style="text-decoration: none; color: inherit; background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 20px 40px rgba(28,58,42,0.16);">
+          <div style="height: 200px; overflow: hidden; background: #2E5740;"><img src="https://vacc.ec/web/image/1309-edb3e6bc/5R.webp" alt="8 hábitos saludables" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="padding: 24px 24px 26px;">
+            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.p4tag }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 23px; margin: 10px 0 10px; color: #1C3A2A; line-height: 1.2;">{{ t.p4title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.p4desc }}</p>
+          </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1Aan00tl9YwnuUJ64ckSkJZwvNqpYLXyg/view" style="text-decoration: none; color: inherit; background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 20px 40px rgba(28,58,42,0.16);">
+          <div style="height: 200px; overflow: hidden; background: #2E5740;"><img src="https://vacc.ec/web/image/1331-dced8210/4R.webp" alt="Mente sana" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="padding: 24px 24px 26px;">
+            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.p5tag }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 23px; margin: 10px 0 10px; color: #1C3A2A; line-height: 1.2;">{{ t.p5title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.p5desc }}</p>
+          </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1vnI0E3vssRQWldHc5ZLg4ZazDltyeErP/view" style="text-decoration: none; color: inherit; background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;" style-hover="transform: translateY(-6px); box-shadow: 0 20px 40px rgba(28,58,42,0.16);">
+          <div style="height: 200px; overflow: hidden; background: #2E5740;"><img src="https://vacc.ec/web/image/1337-1cd343c8/BANNER-QCS_2-750x427.webp" alt="Súper amigos de la salud" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+          <div style="padding: 24px 24px 26px;">
+            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.p6tag }}</span>
+            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 23px; margin: 10px 0 10px; color: #1C3A2A; line-height: 1.2;">{{ t.p6title }}</h3>
+            <p style="font-size: 14.5px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.p6desc }}</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MISSION TRIP DESTACADO ===================== -->
+  <section class="vacc-sec" style="background: #1C3A2A; color: #F6F1E7; padding: 110px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -120px; right: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(214,162,73,0.18), transparent 70%);"></div>
+    <div class="vacc-two" style="max-width: 1180px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative;">
+      <div style="position: relative;">
+        <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.4); background: #2E5740;">
+          <img src="https://vacc.ec/web/image/2063-593715e9/WhatsApp%20Image%202025-10-17%20at%207.53.02%20PM.webp" alt="Mission Trip Vilcabamba" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div style="position: absolute; bottom: -22px; left: -22px; background: #C26B41; padding: 18px 22px; border-radius: 16px; box-shadow: 0 14px 30px rgba(0,0,0,0.35);">
+          <span style="font-family: 'Newsreader', serif; font-size: 34px; font-weight: 600; display: block; line-height: 1; color: #FFF;">2025</span>
+          <span style="font-size: 12px; letter-spacing: 0.5px; color: rgba(255,255,255,0.85); font-weight: 600;">{{ t.featBadge }}</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 22px;">
+          <span style="width: 26px; height: 1.5px; background: #D6A249;"></span>
+          <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A;">{{ t.featEyebrow }}</span>
+        </div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; letter-spacing: -0.5px; margin: 0 0 22px;">{{ t.featTitleA }}<span style="font-style: italic; color: #E8C77A;">{{ t.featTitleEmph }}</span></h2>
+        <p style="font-size: 17px; line-height: 1.7; color: rgba(246,241,231,0.86); margin: 0 0 18px;">{{ t.featP1 }}</p>
+        <p style="font-size: 17px; line-height: 1.7; color: rgba(246,241,231,0.86); margin: 0 0 36px;">{{ t.featP2 }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+          <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 15px 26px; border-radius: 999px;" style-hover="background: #A8552F;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.8c.1.1.1.3 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.2.2.1.4.1.6-.1l.6-.8c.2-.3.4-.2.6-.1l1.7.8c.2.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+            {{ t.featBtnInfo }}
+          </a>
+          <a href="VACC Mission Trip.dc.html" style="display: inline-flex; align-items: center; gap: 9px; color: #F6F1E7; text-decoration: none; font-size: 15px; font-weight: 700; padding: 15px 26px; border-radius: 999px; border: 1px solid rgba(246,241,231,0.4);" style-hover="background: rgba(246,241,231,0.1);">{{ t.featBtnKnow }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RECURSOS ===================== -->
+  <section id="recursos" class="vacc-sec" style="background: #F6F1E7; padding: 110px 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto 54px;">
+        <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 20px;">
+          <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
+          <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.resEyebrow }}</span>
+          <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
+        </div>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.5px; margin: 0 0 16px; color: #1C3A2A;">{{ t.resTitle }}</h2>
+        <p style="font-size: 17px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.resIntro }}</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 22px;">
+
+        <a href="https://drive.google.com/drive/folders/1SbSs6TuHPWRbg4i4DJdxYQGeoZcoOcQ_" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: center;" style-hover="border-color: #C26B41; box-shadow: 0 12px 26px rgba(28,58,42,0.1);">
+          <span style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: #EFEAD9; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="#2E5740" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #1C3A2A; margin-bottom: 3px;">{{ t.r1t }}</span>
+            <span style="display: block; font-size: 13px; color: #6E685B;">{{ t.r1s }}</span>
+          </span>
+        </a>
+
+        <a href="https://drive.google.com/drive/folders/1mkZsFj3II_rgnRw0s-r7NNHDaP3fSJ2d" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: center;" style-hover="border-color: #C26B41; box-shadow: 0 12px 26px rgba(28,58,42,0.1);">
+          <span style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: #EFEAD9; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M4 19l4-6 3 3 4-7 5 6" stroke="#2E5740" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #1C3A2A; margin-bottom: 3px;">{{ t.r2t }}</span>
+            <span style="display: block; font-size: 13px; color: #6E685B;">{{ t.r2s }}</span>
+          </span>
+        </a>
+
+        <a href="https://www.recursos-biblicos.com/2021/11/recetario-para-15-dias-de-alimentacion-saludable.html" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: center;" style-hover="border-color: #C26B41; box-shadow: 0 12px 26px rgba(28,58,42,0.1);">
+          <span style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: #EFEAD9; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 3v8a3 3 0 0 0 6 0V3M9 3v18M18 3c-1.5 1-2 3-2 5s.5 4 2 5v8" stroke="#2E5740" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #1C3A2A; margin-bottom: 3px;">{{ t.r3t }}</span>
+            <span style="display: block; font-size: 13px; color: #6E685B;">{{ t.r3s }}</span>
+          </span>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1Aan00tl9YwnuUJ64ckSkJZwvNqpYLXyg/view" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: center;" style-hover="border-color: #C26B41; box-shadow: 0 12px 26px rgba(28,58,42,0.1);">
+          <span style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: #EFEAD9; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" stroke="#2E5740" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #1C3A2A; margin-bottom: 3px;">{{ t.r4t }}</span>
+            <span style="display: block; font-size: 13px; color: #6E685B;">{{ t.r4s }}</span>
+          </span>
+        </a>
+
+        <a href="https://drive.google.com/file/d/18_69lfK4Xv-ZAV_WoNYjvZxCJsPafTys/view" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: center;" style-hover="border-color: #C26B41; box-shadow: 0 12px 26px rgba(28,58,42,0.1);">
+          <span style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: #EFEAD9; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16l-7-3-7 3z" stroke="#2E5740" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #1C3A2A; margin-bottom: 3px;">{{ t.r5t }}</span>
+            <span style="display: block; font-size: 13px; color: #6E685B;">{{ t.r5s }}</span>
+          </span>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1TwrBplzrNbM7ezSnxMP7kN35hh4e4lbk/view" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 16px; padding: 24px; display: flex; gap: 18px; align-items: center;" style-hover="border-color: #C26B41; box-shadow: 0 12px 26px rgba(28,58,42,0.1);">
+          <span style="flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: #EFEAD9; display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 3l-2 9h5l-7 9 2-9H6z" fill="#2E5740"/></svg></span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 18px; font-weight: 600; color: #1C3A2A; margin-bottom: 3px;">{{ t.r6t }}</span>
+            <span style="display: block; font-size: 13px; color: #6E685B;">{{ t.r6s }}</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VALLE / MUNDO ===================== -->
+  <section style="background: #FBF8F1; padding: 100px 0; border-top: 1px solid rgba(28,58,42,0.08); border-bottom: 1px solid rgba(28,58,42,0.08);">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0 32px; text-align: center;">
+      <span style="display: inline-block; font-size: 12px; letter-spacing: 2.6px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 26px;">{{ t.valleEyebrow }}</span>
+      <p style="font-family: 'Newsreader', serif; font-weight: 400; font-style: italic; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.34; color: #1C3A2A; margin: 0 0 30px; text-wrap: balance;">{{ t.valleQuote }}</p>
+      <p style="font-size: 16px; line-height: 1.7; color: #6E685B; max-width: 620px; margin: 0 auto;">{{ t.valleSub }}</p>
+    </div>
+  </section>
+
+  <!-- ===================== DONAR / CTA ===================== -->
+  <section style="background: #C26B41; color: #FFF; padding: 92px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; bottom: -140px; left: -100px; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,0.07);"></div>
+    <div style="position: absolute; top: -120px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(28,58,42,0.12);"></div>
+    <div style="max-width: 820px; margin: 0 auto; padding: 0 32px; text-align: center; position: relative;">
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(32px, 4.2vw, 54px); line-height: 1.1; letter-spacing: -0.5px; margin: 0 0 20px; text-wrap: balance;">{{ t.donateTitle }}</h2>
+      <p style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 600px; margin: 0 auto 36px;">{{ t.donateSub }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+        <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; background: #FFF; color: #A8552F; text-decoration: none; font-size: 16px; font-weight: 800; padding: 16px 30px; border-radius: 999px; box-shadow: 0 12px 28px rgba(0,0,0,0.2);" style-hover="transform: translateY(-2px);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" fill="#C26B41"/></svg>
+          {{ t.donateBtn }}
+        </a>
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 16px 30px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.7);" style-hover="background: rgba(255,255,255,0.12);">{{ t.volunteerBtn }}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="contacto" style="background: #14281C; color: rgba(246,241,231,0.78); padding: 72px 0 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div class="vacc-foot" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 50px; border-bottom: 1px solid rgba(246,241,231,0.12);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+            <img src="assets/vacc-mark-white.png" alt="VACC" style="height: 48px; width: auto; display: block;">
+            <span style="display: flex; flex-direction: column; line-height: 1.1;">
+              <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 18px; color: #F6F1E7;">Vilcabamba Adventist</span>
+              <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8FAE8B; font-weight: 700; margin-top: 2px;">Community Center</span>
+            </span>
+          </div>
+          <p style="font-size: 14.5px; line-height: 1.7; margin: 0; max-width: 320px;">{{ t.footAbout }}</p>
+        </div>
+
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footExplore }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <a href="VACC Inicio.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fInicio }}</a>
+            <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fAbout }}</a>
+            <a href="VACC Programas.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fPrograms }}</a>
+            <a href="VACC Eventos.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fEvents }}</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footResources }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <a href="#recursos" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fGuides }}</a>
+            <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fMission }}</a>
+            <a href="VACC Contacto.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fDonate }}</a>
+            <a href="VACC Privacidad.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fPrivacy }}</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footContact }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 13px;">
+            <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#8FAE8B"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+              WhatsApp +593 99 371 4307
+            </a>
+            <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10z" stroke="#8FAE8B" stroke-width="1.6"/><circle cx="12" cy="11" r="2.4" stroke="#8FAE8B" stroke-width="1.6"/></svg>
+              {{ t.footLoc }}
+            </span>
+            <a href="mailto:clasomel@gmail.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#8FAE8B" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="#8FAE8B" stroke-width="1.6"/></svg>
+              clasomel@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 26px; flex-wrap: wrap;">
+        <span style="font-size: 13px; color: rgba(246,241,231,0.55);">{{ t.copyright }}</span>
+        <div style="display: flex; gap: 12px;">
+          <a href="https://vacc.ec" target="_blank" rel="noopener" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(246,241,231,0.2); display: flex; align-items: center; justify-content: center; text-decoration: none;" style-hover="border-color: #E8C77A;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#E8C77A"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14V9z"/></svg></a>
+          <a href="https://vacc.ec" target="_blank" rel="noopener" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(246,241,231,0.2); display: flex; align-items: center; justify-content: center; text-decoration: none;" style-hover="border-color: #E8C77A;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#E8C77A" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="#E8C77A" stroke-width="1.6"/><circle cx="17" cy="7" r="1.2" fill="#E8C77A"/></svg></a>
+          <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(246,241,231,0.2); display: flex; align-items: center; justify-content: center; text-decoration: none;" style-hover="border-color: #E8C77A;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#E8C77A"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== EVENT PROMO MODAL ===================== -->
+  <sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(14,28,18,0.66); backdrop-filter: blur(4px);" onClick="{{ closeModal }}">
+      <div class="vacc-modal" style="position: relative; width: 100%; max-width: 760px; background: #FBF8F1; border-radius: 24px; overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,0.5); display: grid; grid-template-columns: 1fr 1fr; animation: vaccPop .35s cubic-bezier(.2,.7,.2,1) both;" onClick="{{ stop }}">
+        <div class="vacc-modal-img" style="background: #2E5740; min-height: 300px;">{{ eventImg }}</div>
+        <div style="padding: 38px 36px; display: flex; flex-direction: column; justify-content: center;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #C26B41; display: inline-block;"></span>{{ t.modalKicker }}
+          </span>
+          <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 30px; line-height: 1.1; color: #1C3A2A; margin: 0 0 10px;">{{ ev.title }}</h3>
+          <p style="font-size: 13.5px; font-weight: 600; color: #8A8270; margin: 0 0 16px; letter-spacing: 0.3px;">{{ ev.date }}</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #5A554A; margin: 0 0 26px;">{{ ev.desc }}</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="{{ eventLink }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 14px 24px; border-radius: 999px; white-space: nowrap;" style-hover="background: #A8552F;">
+              {{ t.modalCta }}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <button onClick="{{ closeModal }}" style="background: transparent; border: none; cursor: pointer; font-family: inherit; font-size: 14px; font-weight: 600; color: #8A8270; padding: 6px;" style-hover="color: #1C3A2A;">{{ t.modalDismiss }}</button>
+          </div>
+        </div>
+        <button onClick="{{ closeModal }}" aria-label="Cerrar" style="position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border-radius: 50%; border: none; cursor: pointer; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;" style-hover="background: #FFF;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#1C3A2A" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;showEventPromo&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot; },
+  &quot;eventLink&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://vacc.ec/event&quot;, &quot;tsType&quot;: &quot;string&quot; },
+  &quot;eventImage&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://vacc.ec/web/image/2217-9905007b/WhatsApp%20Image%202026-02-19%20at%209.10.17%20PM.webp&quot;, &quot;tsType&quot;: &quot;string&quot; }
+}">
+class Component extends DCLogic {
+  state = { lang: this._initLang(), modalOpen: this._initModalOpen() };
+
+  _initLang() {
+    try { return localStorage.getItem('vaccLang') === 'en' ? 'en' : 'es'; } catch (e) { return 'es'; }
+  }
+
+  _initModalOpen() {
+    try {
+      const show = (this.props && this.props.showEventPromo !== undefined) ? this.props.showEventPromo : true;
+      const dismissed = sessionStorage.getItem('vaccEventDismissed') === '1';
+      return !!show && !dismissed;
+    } catch (e) { return false; }
+  }
+
+  closeModal = () => {
+    try { sessionStorage.setItem('vaccEventDismissed', '1'); } catch (e) {}
+    this.setState({ modalOpen: false });
+  };
+  stop = (e) => { e.stopPropagation(); };
+  setLang = (l) => () => { try { localStorage.setItem('vaccLang', l); } catch (e) {} this.setState({ lang: l }); };
+
+  _externalize = () => {
+    try {
+      document.querySelectorAll('a[href^="http"]').forEach((a) => {
+        if (a.getAttribute('target') !== '_blank') {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    } catch (e) {}
+  };
+  _fallbackImages = () => {
+    try {
+      document.querySelectorAll('img').forEach((img) => {
+        if (img._fb) return; img._fb = true;
+        img.addEventListener('error', () => {
+          img.src = 'assets/vacc-mark-white.png';
+          img.style.objectFit = 'contain';
+          img.style.padding = '16%';
+          img.style.opacity = '0.4';
+          img.style.background = '#2E5740';
+        });
+      });
+    } catch (e) {}
+  };
+  componentDidMount() { this._externalize(); this._fallbackImages(); }
+  componentDidUpdate() { this._externalize(); }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const isEs = lang === 'es';
+
+    const STR = {
+      es: {
+        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navResources: 'Recursos', navEvents: 'Eventos', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
+        heroEyebrow: 'Valle de la Longevidad · Loja, Ecuador',
+        heroTag: 'Salud para el cuerpo, la mente y el espíritu',
+        heroSub: 'Centro Comunitario Adventista de Vilcabamba — al servicio de nuestra comunidad y del mundo.',
+        heroBtnPrograms: 'Explora los programas', heroBtnDonate: 'Dona hoy',
+        stat1: 'misioneras movilizadas en servicio', stat2: 'guías de salud gratuitas para descargar', stat3: 'hábitos para un estilo de vida sano', stat4: 'comunidad unida por cuerpo, mente y espíritu',
+        aboutEyebrow: 'Quiénes somos',
+        aboutTitle: 'Un centro de salud con propósito en el corazón de Vilcabamba',
+        aboutP1: 'El Centro Comunitario Adventista de Vilcabamba nace del compromiso permanente de la Iglesia Adventista con el desarrollo integral y el bienestar de las personas. Creemos que la salud florece cuando se cuida el cuerpo, la mente y el espíritu en armonía.',
+        aboutP2: 'A través de programas educativos, ferias de salud, cursos prácticos y momentos de inspiración espiritual, acompañamos a familias y comunidades hacia una vida más plena y saludable.',
+        chip1: 'Salud integral', chip2: 'Inspiración espiritual', chip3: 'Servicio comunitario',
+        aboutBadge: 'Iglesia Adventista del Séptimo Día',
+        progEyebrow: 'Programas y servicios', progTitle: 'Experiencias que transforman vidas', progViewAll: 'Ver todos los programas',
+        p1tag: 'Misiones', p1title: 'Mission Trips', p1desc: 'Viajes de servicio que reúnen voluntarios para fortalecer la salud y la esperanza de la comunidad.',
+        p2tag: 'Nutrición', p2title: 'Panadería Saludable', p2desc: 'Aprende a preparar panes nutritivos, sin aditivos y con mucho amor, junto a nuestra naturópata.',
+        p3tag: 'Comunidad', p3title: 'Feria de la Salud', p3desc: 'Jornadas para las familias que promueven la salud integral y el cuidado mutuo en la comunidad.',
+        p4tag: 'Estilo de vida', p4title: '8 Hábitos Saludables', p4desc: 'Adopta un nuevo hábito cada semana y construye un estilo de vida saludable, paso a paso.',
+        p5tag: 'Bienestar mental', p5title: 'Mente Sana', p5desc: 'Un modelo de bienestar mental basado en una cosmovisión bíblica para vivir en paz.',
+        p6tag: 'Niños y niñas', p6title: 'Súper Amigos de la Salud', p6desc: 'Hábitos saludables y valores para el Vivir Bien, pensados para los más pequeños del hogar.',
+        featEyebrow: 'Historia destacada', featTitleA: 'Mission Trip ', featTitleEmph: 'Vilcabamba', featBadge: 'Edición más reciente',
+        featP1: 'El Centro Comunitario Adventista de Vilcabamba recibió a un grupo de 30 misioneras provenientes de diversas provincias del sur del país, reunidas con el propósito de fortalecer las acciones de servicio comunitario.',
+        featP2: 'Una iniciativa que refleja el compromiso permanente de la Iglesia Adventista con el desarrollo integral y el bienestar de la comunidad.',
+        featBtnInfo: 'Más informes', featBtnKnow: 'Conócelo',
+        resEyebrow: 'Recursos gratuitos', resTitle: 'Guías para vivir mejor, hoy mismo',
+        resIntro: 'Descarga nuestras guías digitales y comienza tu camino hacia un estilo de vida más sano. Disponibles para todos, en cualquier lugar del mundo.',
+        r1t: '8 Hábitos Saludables', r1s: 'Guía digital · Un hábito por semana',
+        r2t: 'Efectos del Programa', r2s: 'Guía digital · Indicadores de salud',
+        r3t: 'Recetario Saludable', r3s: '15 días de alimentación saludable',
+        r4t: 'Mente Sana', r4s: 'Bienestar mental con base bíblica',
+        r5t: 'El Diario de Gratitud', r5s: 'Reconoce y celebra lo recibido',
+        r6t: 'Vamos a Movernos', r6s: 'Reto 60/30 · Actividad física',
+        valleEyebrow: 'Desde el Valle de la Longevidad',
+        valleQuote: '“Vilcabamba es conocida en todo el mundo por la longevidad de su gente. Nuestra misión es compartir ese legado de salud y esperanza — del valle, para el mundo.”',
+        valleSub: 'Te invitamos a conocer, apoyar y ser parte de una comunidad que cuida la vida en todas sus dimensiones.',
+        donateTitle: 'Construyamos juntos puentes de esperanza',
+        donateSub: 'Tu generosidad transforma vidas. Dona hoy para impulsar el impacto positivo en nuestra comunidad y ser parte del cambio.',
+        donateBtn: 'Donar ahora', volunteerBtn: 'Quiero ser voluntario',
+        footAbout: 'Centro Comunitario Adventista de Vilcabamba. Promovemos la salud integral —cuerpo, mente y espíritu— al servicio de la comunidad y del mundo.',
+        footExplore: 'Explorar', footResources: 'Recursos', footContact: 'Contáctanos',
+        fInicio: 'Inicio', fAbout: 'Conócenos', fPrograms: 'Programas', fEvents: 'Eventos',
+        fGuides: 'Guías de salud', fMission: 'Mission Trip', fDonate: 'Donar', fPrivacy: 'Política de privacidad',
+        footLoc: 'Vilcabamba, Loja — Ecuador',
+        copyright: '© 2026 Vilcabamba Adventist Community Center · Hecho con propósito en Vilcabamba.',
+        modalKicker: 'Próximo evento', modalCta: 'Ver evento', modalDismiss: 'Ahora no'
+      },
+      en: {
+        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navResources: 'Resources', navEvents: 'Events', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
+        heroEyebrow: 'Valley of Longevity · Loja, Ecuador',
+        heroTag: 'Health for body, mind & spirit',
+        heroSub: 'Vilcabamba Adventist Community Center — serving our community and the world.',
+        heroBtnPrograms: 'Explore the programs', heroBtnDonate: 'Donate today',
+        stat1: 'missionaries mobilized in service', stat2: 'free health guides to download', stat3: 'habits for a healthy lifestyle', stat4: 'community united in body, mind & spirit',
+        aboutEyebrow: 'Who we are',
+        aboutTitle: 'A health center with purpose, in the heart of Vilcabamba',
+        aboutP1: "The Vilcabamba Adventist Community Center grows out of the Adventist Church's lasting commitment to the whole-person development and well-being of people. We believe health flourishes when body, mind and spirit are cared for in harmony.",
+        aboutP2: 'Through educational programs, health fairs, hands-on courses and moments of spiritual inspiration, we walk with families and communities toward a fuller, healthier life.',
+        chip1: 'Whole-person health', chip2: 'Spiritual inspiration', chip3: 'Community service',
+        aboutBadge: 'Seventh-day Adventist Church',
+        progEyebrow: 'Programs & services', progTitle: 'Experiences that transform lives', progViewAll: 'View all programs',
+        p1tag: 'Missions', p1title: 'Mission Trips', p1desc: "Service trips that bring volunteers together to strengthen the community's health and hope.",
+        p2tag: 'Nutrition', p2title: 'Healthy Baking', p2desc: 'Learn to make nutritious breads, free of additives and full of love, with our naturopath.',
+        p3tag: 'Community', p3title: 'Health Fair', p3desc: 'Family gatherings that promote whole-person health and mutual care in the community.',
+        p4tag: 'Lifestyle', p4title: '8 Healthy Habits', p4desc: 'Adopt a new habit each week and build a healthy lifestyle, step by step.',
+        p5tag: 'Mental wellness', p5title: 'Healthy Mind', p5desc: 'A mental well-being model grounded in a biblical worldview, to live in peace.',
+        p6tag: 'Kids', p6title: 'Health Super Friends', p6desc: 'Healthy habits and values for living well, designed for the youngest at home.',
+        featEyebrow: 'Featured story', featTitleA: 'Mission Trip ', featTitleEmph: 'Vilcabamba', featBadge: 'Most recent edition',
+        featP1: 'The Vilcabamba Adventist Community Center welcomed a group of 30 missionaries from various provinces of southern Ecuador, gathered to strengthen acts of community service.',
+        featP2: "An initiative that reflects the Adventist Church's lasting commitment to the whole-person development and well-being of the community.",
+        featBtnInfo: 'More info', featBtnKnow: 'Discover it',
+        resEyebrow: 'Free resources', resTitle: 'Guides to live better, starting today',
+        resIntro: 'Download our digital guides and begin your journey toward a healthier lifestyle. Available to everyone, anywhere in the world.',
+        r1t: '8 Healthy Habits', r1s: 'Digital guide · One habit per week',
+        r2t: 'Program Effects', r2s: 'Digital guide · Health indicators',
+        r3t: 'Healthy Recipe Book', r3s: '15 days of healthy eating',
+        r4t: 'Healthy Mind', r4s: 'Mental well-being, biblically grounded',
+        r5t: 'The Gratitude Journal', r5s: 'Recognize and celebrate what you receive',
+        r6t: "Let's Get Moving", r6s: '60/30 Challenge · Physical activity',
+        valleEyebrow: 'From the Valley of Longevity',
+        valleQuote: '“Vilcabamba is known around the world for the longevity of its people. Our mission is to share that legacy of health and hope — from the valley, to the world.”',
+        valleSub: 'We invite you to discover, support and be part of a community that cares for life in every dimension.',
+        donateTitle: "Together, let's build bridges of hope",
+        donateSub: 'Your generosity transforms lives. Donate today to drive positive impact in our community and be part of the change.',
+        donateBtn: 'Donate now', volunteerBtn: 'I want to volunteer',
+        footAbout: 'Vilcabamba Adventist Community Center. We promote whole-person health —body, mind and spirit— serving the community and the world.',
+        footExplore: 'Explore', footResources: 'Resources', footContact: 'Contact us',
+        fInicio: 'Home', fAbout: 'About', fPrograms: 'Programs', fEvents: 'Events',
+        fGuides: 'Health guides', fMission: 'Mission Trip', fDonate: 'Donate', fPrivacy: 'Privacy policy',
+        footLoc: 'Vilcabamba, Loja — Ecuador',
+        copyright: '© 2026 Vilcabamba Adventist Community Center · Made with purpose in Vilcabamba.',
+        modalKicker: 'Upcoming event', modalCta: 'View event', modalDismiss: 'Not now'
+      }
+    };
+
+    const EVENT = {
+      es: { title: 'Taller de Panadería Comercial Saludable', date: 'Domingo 28 de junio · 9h00 · Costo $10', desc: 'Ven, aprende y llévate tu producto. Cupos limitados. El Atillo, vía a Yamburara Alto, Vilcabamba.' },
+      en: { title: 'Healthy Commercial Baking Workshop', date: 'Sunday, June 28 · 9:00 AM · $10', desc: 'Come, learn and take your own product home. Limited spots. El Atillo, road to Yamburara Alto, Vilcabamba.' }
+    };
+
+    const active = '#1C3A2A', activeC = '#FFFFFF', inact = 'transparent', inactC = '#5B6B5E';
+
+    return {
+      lang, isEs, isEn: !isEs,
+      t: STR[lang], ev: EVENT[lang],
+      setEs: this.setLang('es'), setEn: this.setLang('en'),
+      esBg: isEs ? active : inact, esColor: isEs ? activeC : inactC,
+      enBg: !isEs ? active : inact, enColor: !isEs ? activeC : inactC,
+      modalOpen: this.state.modalOpen, closeModal: this.closeModal, stop: this.stop,
+      eventLink: this.props.eventLink ?? 'VACC Eventos.dc.html',
+      eventImg: React.createElement('img', {
+        src: this.props.eventImage ?? 'https://vacc.ec/web/image/2217-9905007b/WhatsApp%20Image%202026-02-19%20at%209.10.17%20PM.webp',
+        alt: 'Evento',
+        style: { width: '100%', height: '100%', objectFit: 'cover', display: 'block' }
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

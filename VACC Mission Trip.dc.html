@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  @media (max-width: 920px) {
+    .vacc-nav { display: none !important; }
+    .vacc-header { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
+  }
+  @media (max-width: 860px) {
+    .vacc-two { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .vacc-sec { padding-top: 64px !important; padding-bottom: 64px !important; }
+  }
+  @media (max-width: 760px) {
+    .vacc-foot { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+    .vacc-stats3 { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 560px) {
+    .vacc-foot { grid-template-columns: 1fr !important; }
+    .vacc-brandsub { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'Hanken Grotesk', system-ui, sans-serif; color: #26241F; background: #F6F1E7; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(246,241,231,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(28,58,42,0.12);">
+    <div class="vacc-header" style="max-width: 1180px; margin: 0 auto; padding: 0 32px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="VACC Inicio.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="assets/vacc-mark-green.png" alt="VACC" style="height: 46px; width: auto; display: block;">
+        <span style="display: flex; flex-direction: column; line-height: 1.08;">
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; color: #1C3A2A;">Vilcabamba Adventist</span>
+          <span class="vacc-brandsub" style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6E685B; font-weight: 700; margin-top: 2px;">Community Center</span>
+        </span>
+      </a>
+      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 24px;">
+        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
+        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #C26B41; font-size: 14.5px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navMission }}</a>
+        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="display: flex; align-items: center; border: 1px solid rgba(28,58,42,0.2); border-radius: 999px; padding: 3px; gap: 2px;">
+          <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: {{ esBg }}; color: {{ esColor }};">ES</button>
+          <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: {{ enBg }}; color: {{ enColor }};">EN</button>
+        </div>
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 14px; font-weight: 700; padding: 11px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(194,107,65,0.32);" style-hover="background: #A8552F;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.8c.1.1.1.3 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.2.2.1.4.1.6-.1l.6-.8c.2-.3.4-.2.6-.1l1.7.8c.2.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+          {{ t.ctaWrite }}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section style="background: #1C3A2A; color: #F6F1E7;">
+    <div style="height: clamp(300px, 50vh, 520px); background-image: url('assets/vacc-hero.png'); background-size: cover; background-position: center; position: relative;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,42,30,0.25), rgba(20,42,30,0.45) 55%, #1C3A2A 100%);"></div>
+    </div>
+    <div style="max-width: 880px; margin: 0 auto; padding: 18px 32px 76px; text-align: center;">
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.45); border-radius: 999px; margin-bottom: 24px; background: rgba(214,162,73,0.08);">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #D6A249;"></span>
+        <span style="font-size: 11.5px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A;">{{ t.heroEyebrow }}</span>
+      </div>
+      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(36px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.5px; margin: 0 0 22px; text-wrap: balance;">{{ t.heroTitle }}</h1>
+      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.7; color: rgba(246,241,231,0.86); max-width: 660px; margin: 0 auto;">{{ t.heroSub }}</p>
+    </div>
+  </section>
+
+  <section style="background: #EFEAD9;">
+    <div class="vacc-stats3" style="max-width: 1000px; margin: 0 auto; padding: 36px 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+      <div>
+        <span style="display: block; font-family: 'Newsreader', serif; font-size: 34px; font-weight: 600; color: #1C3A2A;">~30</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat1 }}</span>
+      </div>
+      <div>
+        <span style="display: block; font-family: 'Newsreader', serif; font-size: 34px; font-weight: 600; color: #1C3A2A;">9–12 Oct</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat2 }}</span>
+      </div>
+      <div>
+        <span style="display: block; font-family: 'Newsreader', serif; font-size: 34px; font-weight: 600; color: #1C3A2A;">3</span>
+        <span style="font-size: 13px; color: #6E685B; font-weight: 500;">{{ t.stat3 }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="vacc-sec" style="background: #F6F1E7; padding: 96px 0;">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 32px;">
+
+      <div style="margin-bottom: 30px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: #1C3A2A; color: #E8C77A; font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; margin-bottom: 18px;">1</span>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; margin: 0 0 16px; color: #1C3A2A;">{{ t.s1title }}</h2>
+        <p style="font-size: 16.5px; line-height: 1.75; color: #4A463C; margin: 0; max-width: 760px;">{{ t.s1text }}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 86px;">
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2074-0a407cd2/WhatsApp%20Image%202025-10-17%20at%208.35.16%20PM(8).webp" alt="Restauración" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2070-475b788a/WhatsApp%20Image%202025-10-17%20at%208.35.16%20PM(5).webp" alt="Restauración" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2073-58e696d0/WhatsApp%20Image%202025-10-17%20at%208.35.16%20PM.webp" alt="Restauración" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2075-df9350ea/WhatsApp%20Image%202025-10-17%20at%208.35.16%20PM(2).webp" alt="Restauración" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: #C26B41; color: #FFF; font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; margin-bottom: 18px;">2</span>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; margin: 0 0 16px; color: #1C3A2A;">{{ t.s2title }}</h2>
+        <p style="font-size: 16.5px; line-height: 1.75; color: #4A463C; margin: 0 0 12px; max-width: 760px;">{{ t.s2text }}</p>
+        <p style="font-size: 16.5px; line-height: 1.75; color: #4A463C; margin: 0; max-width: 760px;">{{ t.s2text2 }}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 86px;">
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2082-3d84efea/WhatsApp%20Image%202025-10-17%20at%207.53.06%20PM(1).webp" alt="Feria de salud" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2087-8be60c0b/WhatsApp%20Image%202025-10-17%20at%207.53.06%20PM.webp" alt="Feria de salud" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2085-a8b916b1/WhatsApp%20Image%202025-10-17%20at%207.53.02%20PM(2).webp" alt="Feria de salud" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2084-d63658ca/WhatsApp%20Image%202025-10-17%20at%207.53.01%20PM.webp" alt="Feria de salud" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      </div>
+
+      <div style="margin-bottom: 30px;">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: #D6A249; color: #1C3A2A; font-family: 'Newsreader', serif; font-size: 20px; font-weight: 600; margin-bottom: 18px;">3</span>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.12; margin: 0 0 16px; color: #1C3A2A;">{{ t.s3title }}</h2>
+        <p style="font-size: 16.5px; line-height: 1.75; color: #4A463C; margin: 0 0 12px; max-width: 760px;">{{ t.s3text }}</p>
+        <p style="font-size: 16.5px; line-height: 1.75; color: #4A463C; margin: 0; max-width: 760px;">{{ t.s3text2 }}</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2094-74b3d38f/WhatsApp%20Image%202025-10-17%20at%209.19.43%20PM.webp" alt="Movimiento misionero" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2095-462fdddf/WhatsApp%20Image%202025-10-17%20at%209.19.44%20PM(2).webp" alt="Movimiento misionero" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2097-0385bd3e/WhatsApp%20Image%202025-10-17%20at%209.19.44%20PM(3).webp" alt="Movimiento misionero" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div style="border-radius: 14px; overflow: hidden; aspect-ratio: 4/3; background: #2E5740;"><img src="https://vacc.ec/web/image/2098-17b67d43/WhatsApp%20Image%202025-10-17%20at%207.53.03%20PM.webp" alt="Movimiento misionero" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background: #C26B41; color: #FFF; padding: 76px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; bottom: -140px; left: -100px; width: 360px; height: 360px; border-radius: 50%; background: rgba(255,255,255,0.07);"></div>
+    <div style="max-width: 760px; margin: 0 auto; padding: 0 32px; text-align: center; position: relative;">
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; margin: 0 0 18px; text-wrap: balance;">{{ t.ctaTitle }}</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 540px; margin: 0 auto 30px;">{{ t.ctaSub }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: #FFF; color: #A8552F; text-decoration: none; font-size: 16px; font-weight: 800; padding: 15px 30px; border-radius: 999px; box-shadow: 0 12px 28px rgba(0,0,0,0.2);" style-hover="transform: translateY(-2px);">{{ t.ctaBtn }}</a>
+        <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 15px 30px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.7);" style-hover="background: rgba(255,255,255,0.12);">{{ t.ctaBtn2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #14281C; color: rgba(246,241,231,0.78); padding: 72px 0 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div class="vacc-foot" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 50px; border-bottom: 1px solid rgba(246,241,231,0.12);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+            <img src="assets/vacc-mark-white.png" alt="VACC" style="height: 48px; width: auto; display: block;">
+            <span style="display: flex; flex-direction: column; line-height: 1.1;">
+              <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 18px; color: #F6F1E7;">Vilcabamba Adventist</span>
+              <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8FAE8B; font-weight: 700; margin-top: 2px;">Community Center</span>
+            </span>
+          </div>
+          <p style="font-size: 14.5px; line-height: 1.7; margin: 0; max-width: 320px;">{{ t.footAbout }}</p>
+        </div>
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footExplore }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <a href="VACC Inicio.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fInicio }}</a>
+            <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fAbout }}</a>
+            <a href="VACC Programas.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fPrograms }}</a>
+            <a href="VACC Eventos.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fEvents }}</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footResources }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fMission }}</a>
+            <a href="VACC Contacto.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fDonate }}</a>
+            <a href="VACC Privacidad.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fPrivacy }}</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footContact }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 13px;">
+            <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#8FAE8B"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+              WhatsApp +593 99 371 4307
+            </a>
+            <span style="display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.45;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10z" stroke="#8FAE8B" stroke-width="1.6"/><circle cx="12" cy="11" r="2.4" stroke="#8FAE8B" stroke-width="1.6"/></svg>
+              {{ t.footLoc }}
+            </span>
+            <a href="mailto:clasomel@gmail.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#8FAE8B" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="#8FAE8B" stroke-width="1.6"/></svg>
+              clasomel@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 26px; flex-wrap: wrap;">
+        <span style="font-size: 13px; color: rgba(246,241,231,0.55);">{{ t.copyright }}</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: this._initLang() };
+
+  _initLang() {
+    try { return localStorage.getItem('vaccLang') === 'en' ? 'en' : 'es'; } catch (e) { return 'es'; }
+  }
+  setLang = (l) => () => { try { localStorage.setItem('vaccLang', l); } catch (e) {} this.setState({ lang: l }); };
+
+  _externalize = () => {
+    try {
+      document.querySelectorAll('a[href^="http"]').forEach((a) => {
+        if (a.getAttribute('target') !== '_blank') {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    } catch (e) {}
+  };
+  _fallbackImages = () => {
+    try {
+      document.querySelectorAll('img').forEach((img) => {
+        if (img._fb) return; img._fb = true;
+        img.addEventListener('error', () => {
+          img.src = 'assets/vacc-mark-white.png';
+          img.style.objectFit = 'contain';
+          img.style.padding = '16%';
+          img.style.opacity = '0.4';
+          img.style.background = '#2E5740';
+        });
+      });
+    } catch (e) {}
+  };
+  componentDidMount() { this._externalize(); this._fallbackImages(); }
+  componentDidUpdate() { this._externalize(); }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const isEs = lang === 'es';
+    const STR = {
+      es: {
+        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
+        heroEyebrow: 'Historia destacada · Octubre 2025',
+        heroTitle: 'Mission Trip Vilcabamba',
+        heroSub: 'El Centro Comunitario Adventista de Vilcabamba y la Iglesia Adventista del Séptimo Día tuvieron el privilegio de recibir a cerca de 30 mujeres adventistas, esposas de pastores del sur del Ecuador, en un viaje misionero lleno de servicio y fe.',
+        stat1: 'misioneras voluntarias', stat2: 'jornada de servicio', stat3: 'frentes de acción misionera',
+        s1title: 'Restauración de áreas',
+        s1text: 'Gracias al trabajo comprometido de las voluntarias, se realizaron acciones de pintura de las letras en la fachada de la iglesia y en áreas complementarias de la propiedad, además de plantar nuevas especies ornamentales que dan vida y color a nuestro entorno. También se llevó a cabo el mantenimiento del jardín y los espacios exteriores.',
+        s2title: 'Feria de Salud en Malacatos',
+        s2text: 'En el Coliseo Municipal de Malacatos participamos en una Feria de Salud junto a las voluntarias y la iglesia local. La jornada incluyó limpieza del coliseo, promoción de los 8 remedios naturales, entrega gratuita de lentes de lectura, atención médica y psicológica, así como orientación en Octubre Rosa.',
+        s2text2: '54 personas recibieron las Guías de Estudios de Nuevo Tiempo Ecuador, destacando el ejemplar "La Máquina Humana". Agradecemos a todos quienes hicieron posible esta acción solidaria por la salud y la esperanza.',
+        s3title: 'Movimiento misionero',
+        s3text: 'Como parte de las acciones misioneras y espirituales, las voluntarias compartieron esperanza y amor con la comunidad de Malacatos. Se entregaron regalos a 25 niños y sus familias, quienes además recibieron guías de estudio bíblico para iniciar un camino espiritual en sus hogares.',
+        s3text2: 'Se realizó un culto de gratitud en la Hacienda "Casa de Sammy", donde la Iglesia Adventista de Vilcabamba y sus líderes reconocieron la labor misionera, y momentos de confraternización en el Centro Comunitario, donde las voluntarias conocieron más sobre el propósito de este espacio.',
+        ctaTitle: '¿Quieres ser parte del próximo viaje misionero?', ctaSub: 'Escríbenos para conocer cómo sumarte como voluntario o apoyar las próximas acciones de servicio.',
+        ctaBtn: 'Más informes', ctaBtn2: 'Contáctanos',
+        footAbout: 'Centro Comunitario Adventista de Vilcabamba. Promovemos la salud integral —cuerpo, mente y espíritu— al servicio de la comunidad y del mundo.',
+        footExplore: 'Explorar', footResources: 'Recursos', footContact: 'Contáctanos',
+        fInicio: 'Inicio', fAbout: 'Conócenos', fPrograms: 'Programas', fEvents: 'Eventos',
+        fMission: 'Mission Trip', fDonate: 'Donar / Apoyar', fPrivacy: 'Política de privacidad',
+        footLoc: 'Barrio El Atillo · Vía Antigua a Yamburara, Vilcabamba — Loja, Ecuador',
+        copyright: '© 2026 Vilcabamba Adventist Community Center · Hecho con propósito en Vilcabamba.'
+      },
+      en: {
+        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
+        heroEyebrow: 'Featured story · October 2025',
+        heroTitle: 'Mission Trip Vilcabamba',
+        heroSub: 'The Vilcabamba Adventist Community Center and the Seventh-day Adventist Church had the privilege of welcoming nearly 30 Adventist women, pastors’ wives from southern Ecuador, on a mission trip full of service and faith.',
+        stat1: 'volunteer missionaries', stat2: 'days of service', stat3: 'fronts of mission action',
+        s1title: 'Restoring the grounds',
+        s1text: 'Thanks to the committed work of the volunteers, the lettering on the church façade and complementary areas of the property were repainted, new ornamental species were planted to bring life and color to our surroundings, and the garden and outdoor spaces were maintained.',
+        s2title: 'Health Fair in Malacatos',
+        s2text: 'At the Malacatos Municipal Coliseum we took part in a Health Fair alongside the volunteers and the local church. The day included cleaning the coliseum, promoting the 8 natural remedies, free reading glasses, medical and psychological care, and Pink October guidance.',
+        s2text2: '54 people received the Nuevo Tiempo Ecuador study guides, featuring the title "The Human Machine." We thank everyone who made this act of solidarity for health and hope possible.',
+        s3title: 'Mission movement',
+        s3text: 'As part of the mission and spiritual outreach, the volunteers shared hope and love with the Malacatos community. Gifts were given to 25 children and their families, who also received Bible-study guides to begin a spiritual journey at home.',
+        s3text2: 'A thanksgiving service was held at the "Casa de Sammy" estate, where the Vilcabamba Adventist Church and its leaders recognized the mission work, along with moments of fellowship at the Community Center, where the volunteers learned more about the purpose of this space.',
+        ctaTitle: 'Want to join the next mission trip?', ctaSub: 'Message us to learn how to join as a volunteer or support the upcoming service actions.',
+        ctaBtn: 'More info', ctaBtn2: 'Contact us',
+        footAbout: 'Vilcabamba Adventist Community Center. We promote whole-person health —body, mind and spirit— serving the community and the world.',
+        footExplore: 'Explore', footResources: 'Resources', footContact: 'Contact us',
+        fInicio: 'Home', fAbout: 'About', fPrograms: 'Programs', fEvents: 'Events',
+        fMission: 'Mission Trip', fDonate: 'Donate / Support', fPrivacy: 'Privacy policy',
+        footLoc: 'El Atillo · Old road to Yamburara, Vilcabamba — Loja, Ecuador',
+        copyright: '© 2026 Vilcabamba Adventist Community Center · Made with purpose in Vilcabamba.'
+      }
+    };
+    const active = '#1C3A2A', activeC = '#FFFFFF', inact = 'transparent', inactC = '#5B6B5E';
+    return {
+      t: STR[lang],
+      setEs: this.setLang('es'), setEn: this.setLang('en'),
+      esBg: isEs ? active : inact, esColor: isEs ? activeC : inactC,
+      enBg: !isEs ? active : inact, enColor: !isEs ? activeC : inactC
+    };
+  }
+}
+</script>
+</body>
+</html>

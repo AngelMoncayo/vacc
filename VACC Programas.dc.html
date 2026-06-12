@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  @media (max-width: 920px) {
+    .vacc-nav { display: none !important; }
+    .vacc-header { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
+  }
+  @media (max-width: 860px) {
+    .vacc-two { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .vacc-flip { direction: ltr !important; }
+    .vacc-sec { padding-top: 72px !important; padding-bottom: 72px !important; }
+  }
+  @media (max-width: 760px) {
+    .vacc-foot { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+  }
+  @media (max-width: 560px) {
+    .vacc-foot { grid-template-columns: 1fr !important; }
+    .vacc-brandsub { display: none !important; }
+  }
+</style>
+</helmet>
+
+<div style="font-family: 'Hanken Grotesk', system-ui, sans-serif; color: #26241F; background: #F6F1E7; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(246,241,231,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(28,58,42,0.12);">
+    <div class="vacc-header" style="max-width: 1180px; margin: 0 auto; padding: 0 32px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      <a href="VACC Inicio.dc.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+        <img src="assets/vacc-mark-green.png" alt="VACC" style="height: 46px; width: auto; display: block;">
+        <span style="display: flex; flex-direction: column; line-height: 1.08;">
+          <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 17px; color: #1C3A2A;">Vilcabamba Adventist</span>
+          <span class="vacc-brandsub" style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6E685B; font-weight: 700; margin-top: 2px;">Community Center</span>
+        </span>
+      </a>
+      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 24px;">
+        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
+        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #C26B41; font-size: 14.5px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navPrograms }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
+        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="display: flex; align-items: center; border: 1px solid rgba(28,58,42,0.2); border-radius: 999px; padding: 3px; gap: 2px;">
+          <button onClick="{{ setEs }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: {{ esBg }}; color: {{ esColor }};">ES</button>
+          <button onClick="{{ setEn }}" style="border: none; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: {{ enBg }}; color: {{ enColor }};">EN</button>
+        </div>
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 14px; font-weight: 700; padding: 11px 18px; border-radius: 999px; box-shadow: 0 6px 16px rgba(194,107,65,0.32);" style-hover="background: #A8552F;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.8c.1.1.1.3 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.7 1.1 1.4 1.8.9.8 1.7 1 2 1.2.2.1.4.1.6-.1l.6-.8c.2-.3.4-.2.6-.1l1.7.8c.2.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg>
+          {{ t.ctaWrite }}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section style="background: #1C3A2A; color: #F6F1E7; padding: 70px 0 80px; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -120px; right: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(214,162,73,0.16), transparent 70%);"></div>
+    <div style="max-width: 820px; margin: 0 auto; padding: 0 32px; text-align: center; position: relative;">
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.45); border-radius: 999px; margin-bottom: 24px; background: rgba(214,162,73,0.08);">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #D6A249;"></span>
+        <span style="font-size: 11.5px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A;">{{ t.heroEyebrow }}</span>
+      </div>
+      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.06; letter-spacing: -0.5px; margin: 0 0 20px; text-wrap: balance;">{{ t.heroTitle }}</h1>
+      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.65; color: rgba(246,241,231,0.85); max-width: 620px; margin: 0 auto;">{{ t.heroSub }}</p>
+    </div>
+  </section>
+
+  <section class="vacc-sec" style="background: #F6F1E7; padding: 100px 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 90px;">
+
+      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 24px 54px rgba(28,58,42,0.18); background: #2E5740;">
+          <img src="https://vacc.ec/web/image/2031-f054690d/WhatsApp%20Image%202025-10-03%20at%208.28.08%20PM(2).webp" alt="Centro de Capacitaciones" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div>
+          <span style="display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">{{ t.p1kicker }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -0.4px; margin: 0 0 8px; color: #1C3A2A;">{{ t.p1title }}</h2>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #C26B41; margin: 0 0 20px;">{{ t.p1slogan }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0 0 14px;">{{ t.p1p1 }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0;">{{ t.p1p2 }}</p>
+        </div>
+      </div>
+
+      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="order: 2;">
+          <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 24px 54px rgba(28,58,42,0.18); background: #2E5740;">
+            <img src="https://vacc.ec/web/image/2036-228e9d98/WhatsApp%20Image%202025-10-03%20at%208.45.25%20PM(2).webp" alt="Estilo de vida saludable" style="width: 100%; height: auto; display: block;">
+          </div>
+        </div>
+        <div style="order: 1;">
+          <span style="display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">{{ t.p2kicker }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -0.4px; margin: 0 0 8px; color: #1C3A2A;">{{ t.p2title }}</h2>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #C26B41; margin: 0 0 20px;">{{ t.p2slogan }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0 0 14px;">{{ t.p2p1 }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0;">{{ t.p2p2 }}</p>
+        </div>
+      </div>
+
+      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 24px 54px rgba(28,58,42,0.18); background: #2E5740;">
+          <img src="https://vacc.ec/web/image/1049-7b9779b9/joel-muniz-A4Ax1ApccfA-unsplash.webp" alt="Proyecto de Donación" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div>
+          <span style="display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">{{ t.p3kicker }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -0.4px; margin: 0 0 8px; color: #1C3A2A;">{{ t.p3title }}</h2>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #C26B41; margin: 0 0 20px;">{{ t.p3slogan }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0;">{{ t.p3p1 }}</p>
+          <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 13px 24px; border-radius: 999px;" style-hover="background: #A8552F;">
+            {{ t.p3btn }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="background: #C26B41; color: #FFF; padding: 76px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; bottom: -140px; left: -100px; width: 360px; height: 360px; border-radius: 50%; background: rgba(255,255,255,0.07);"></div>
+    <div style="max-width: 760px; margin: 0 auto; padding: 0 32px; text-align: center; position: relative;">
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; margin: 0 0 18px; text-wrap: balance;">{{ t.ctaTitle }}</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 540px; margin: 0 auto 30px;">{{ t.ctaSub }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+        <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; background: #FFF; color: #A8552F; text-decoration: none; font-size: 16px; font-weight: 800; padding: 15px 30px; border-radius: 999px; box-shadow: 0 12px 28px rgba(0,0,0,0.2);" style-hover="transform: translateY(-2px);">{{ t.ctaBtn }}</a>
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 15px 30px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.7);" style-hover="background: rgba(255,255,255,0.12);">{{ t.ctaBtn2 }}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #14281C; color: rgba(246,241,231,0.78); padding: 72px 0 32px;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div class="vacc-foot" style="display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 50px; border-bottom: 1px solid rgba(246,241,231,0.12);">
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 18px;">
+            <img src="assets/vacc-mark-white.png" alt="VACC" style="height: 48px; width: auto; display: block;">
+            <span style="display: flex; flex-direction: column; line-height: 1.1;">
+              <span style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 18px; color: #F6F1E7;">Vilcabamba Adventist</span>
+              <span style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #8FAE8B; font-weight: 700; margin-top: 2px;">Community Center</span>
+            </span>
+          </div>
+          <p style="font-size: 14.5px; line-height: 1.7; margin: 0; max-width: 320px;">{{ t.footAbout }}</p>
+        </div>
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footExplore }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <a href="VACC Inicio.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fInicio }}</a>
+            <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fAbout }}</a>
+            <a href="VACC Programas.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fPrograms }}</a>
+            <a href="VACC Eventos.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fEvents }}</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footResources }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fMission }}</a>
+            <a href="VACC Contacto.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fDonate }}</a>
+            <a href="VACC Privacidad.dc.html" style="text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">{{ t.fPrivacy }}</a>
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #E8C77A; font-weight: 700; margin: 0 0 18px;">{{ t.footContact }}</h4>
+          <div style="display: flex; flex-direction: column; gap: 13px;">
+            <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#8FAE8B"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+              WhatsApp +593 99 371 4307
+            </a>
+            <span style="display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.45;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10z" stroke="#8FAE8B" stroke-width="1.6"/><circle cx="12" cy="11" r="2.4" stroke="#8FAE8B" stroke-width="1.6"/></svg>
+              {{ t.footLoc }}
+            </span>
+            <a href="mailto:clasomel@gmail.com" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: rgba(246,241,231,0.78); font-size: 14.5px;" style-hover="color: #FFF;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#8FAE8B" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="#8FAE8B" stroke-width="1.6"/></svg>
+              clasomel@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 26px; flex-wrap: wrap;">
+        <span style="font-size: 13px; color: rgba(246,241,231,0.55);">{{ t.copyright }}</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: this._initLang() };
+
+  _initLang() {
+    try { return localStorage.getItem('vaccLang') === 'en' ? 'en' : 'es'; } catch (e) { return 'es'; }
+  }
+  setLang = (l) => () => { try { localStorage.setItem('vaccLang', l); } catch (e) {} this.setState({ lang: l }); };
+
+  _externalize = () => {
+    try {
+      document.querySelectorAll('a[href^="http"]').forEach((a) => {
+        if (a.getAttribute('target') !== '_blank') {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    } catch (e) {}
+  };
+  _fallbackImages = () => {
+    try {
+      document.querySelectorAll('img').forEach((img) => {
+        if (img._fb) return; img._fb = true;
+        img.addEventListener('error', () => {
+          img.src = 'assets/vacc-mark-white.png';
+          img.style.objectFit = 'contain';
+          img.style.padding = '16%';
+          img.style.opacity = '0.4';
+          img.style.background = '#2E5740';
+        });
+      });
+    } catch (e) {}
+  };
+  componentDidMount() { this._externalize(); this._fallbackImages(); }
+  componentDidUpdate() { this._externalize(); }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const isEs = lang === 'es';
+    const STR = {
+      es: {
+        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
+        heroEyebrow: 'Programas y servicios',
+        heroTitle: 'Experiencias que transforman vidas',
+        heroSub: 'Nuestros programas fortalecen el tejido social: celebran la diversidad y crean espacios para la expresión creativa y el desarrollo de las capacidades de cada persona de la comunidad.',
+        p1kicker: 'Centro de Capacitaciones', p1title: 'Sembrando Conocimiento', p1slogan: '“Capacitación que impulsa el cambio”',
+        p1p1: 'Este programa ofrece capacitaciones que impulsan el cambio positivo: clases de habilidades laborales, programas de desarrollo profesional y actividades creativas, buscando empoderar a nuestra comunidad para alcanzar su máximo potencial.',
+        p1p2: 'Tu donación respalda directamente estas iniciativas, creando oportunidades para el crecimiento personal y profesional. Únete a la construcción de un futuro más brillante.',
+        p2kicker: 'Estilo de vida saludable', p2title: 'Hábitos que transforman vidas', p2slogan: '“Equilibrio, conciencia y bienestar integral”',
+        p2p1: 'Promover un estilo de vida saludable es mucho más que hablar de buena alimentación o ejercicio: es fomentar una forma de vivir con equilibrio, conciencia y bienestar integral. Impulsamos espacios que invitan a reconectar con la salud física, emocional, social y espiritual.',
+        p2p2: 'A través de talleres, encuentros y actividades fortalecemos hábitos sostenibles y transformadores. Creemos que pequeños cambios diarios generan grandes impactos en la calidad de vida de toda la comunidad.',
+        p3kicker: 'Proyecto de Donación', p3title: 'Raíces y Creatividad', p3slogan: '“Cada aporte se convierte en acción”',
+        p3p1: 'Nuestro Programa de Donaciones es el motor que impulsa el impacto positivo en la comunidad. Cada contribución, grande o pequeña, se traduce en acciones concretas que mejoran vidas: mantenemos y expandimos programas educativos, servicios de salud y oportunidades de desarrollo. Ya sea una donación única o un compromiso mensual, cada aporte cuenta.',
+        p3btn: 'Quiero apoyar',
+        ctaTitle: '¿Listo para ser parte del cambio?', ctaSub: 'Participa en nuestros programas, ofrécete como voluntario o apóyanos para seguir transformando vidas en Vilcabamba.',
+        ctaBtn: 'Contáctanos', ctaBtn2: 'Escribir por WhatsApp',
+        footAbout: 'Centro Comunitario Adventista de Vilcabamba. Promovemos la salud integral —cuerpo, mente y espíritu— al servicio de la comunidad y del mundo.',
+        footExplore: 'Explorar', footResources: 'Recursos', footContact: 'Contáctanos',
+        fInicio: 'Inicio', fAbout: 'Conócenos', fPrograms: 'Programas', fEvents: 'Eventos',
+        fMission: 'Mission Trip', fDonate: 'Donar / Apoyar', fPrivacy: 'Política de privacidad',
+        footLoc: 'Barrio El Atillo · Vía Antigua a Yamburara, Vilcabamba — Loja, Ecuador',
+        copyright: '© 2026 Vilcabamba Adventist Community Center · Hecho con propósito en Vilcabamba.'
+      },
+      en: {
+        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
+        heroEyebrow: 'Programs & services',
+        heroTitle: 'Experiences that transform lives',
+        heroSub: 'Our programs strengthen the social fabric: they celebrate diversity and create spaces for creative expression and the development of every community member’s capabilities.',
+        p1kicker: 'Training Center', p1title: 'Sowing Knowledge', p1slogan: '“Training that drives change”',
+        p1p1: 'This program offers training that drives positive change: job-skills classes, professional development and creative activities, seeking to empower our community to reach its full potential.',
+        p1p2: 'Your donation directly supports these initiatives, creating opportunities for personal and professional growth. Join us in building a brighter future.',
+        p2kicker: 'Healthy lifestyle', p2title: 'Habits that transform lives', p2slogan: '“Balance, awareness & whole-person well-being”',
+        p2p1: 'Promoting a healthy lifestyle is much more than talking about good food or exercise: it means fostering a way of living with balance, awareness and whole-person well-being. We create spaces that invite people to reconnect with their physical, emotional, social and spiritual health.',
+        p2p2: 'Through workshops, gatherings and activities we strengthen sustainable, transformative habits. We believe small daily changes create a big impact on the quality of life of the whole community.',
+        p3kicker: 'Giving Project', p3title: 'Roots & Creativity', p3slogan: '“Every gift becomes action”',
+        p3p1: 'Our Giving Program is the engine driving positive impact in the community. Every contribution, large or small, becomes concrete action that improves lives: we sustain and expand educational programs, health services and development opportunities. Whether a one-time gift or a monthly commitment, every contribution counts.',
+        p3btn: 'I want to support',
+        ctaTitle: 'Ready to be part of the change?', ctaSub: 'Join our programs, volunteer, or support us so we can keep transforming lives in Vilcabamba.',
+        ctaBtn: 'Contact us', ctaBtn2: 'Message on WhatsApp',
+        footAbout: 'Vilcabamba Adventist Community Center. We promote whole-person health —body, mind and spirit— serving the community and the world.',
+        footExplore: 'Explore', footResources: 'Resources', footContact: 'Contact us',
+        fInicio: 'Home', fAbout: 'About', fPrograms: 'Programs', fEvents: 'Events',
+        fMission: 'Mission Trip', fDonate: 'Donate / Support', fPrivacy: 'Privacy policy',
+        footLoc: 'El Atillo · Old road to Yamburara, Vilcabamba — Loja, Ecuador',
+        copyright: '© 2026 Vilcabamba Adventist Community Center · Made with purpose in Vilcabamba.'
+      }
+    };
+    const active = '#1C3A2A', activeC = '#FFFFFF', inact = 'transparent', inactC = '#5B6B5E';
+    return {
+      t: STR[lang],
+      setEs: this.setLang('es'), setEn: this.setLang('en'),
+      esBg: isEs ? active : inact, esColor: isEs ? activeC : inactC,
+      enBg: !isEs ? active : inact, enColor: !isEs ? activeC : inactC
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -16,7 +16,7 @@
   html { scroll-behavior: smooth; }
   body { margin: 0; }
   img { max-width: 100%; }
-  @media (max-width: 920px) {
+  @media (max-width: 1040px) {
     .vacc-nav { display: none !important; }
     .vacc-header { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
   }
@@ -46,13 +46,15 @@
           <span class="vacc-brandsub" style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6E685B; font-weight: 700; margin-top: 2px;">Community Center</span>
         </span>
       </a>
-      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 24px;">
-        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
-        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
-        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
-        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
-        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #C26B41; font-size: 14.5px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navMission }}</a>
-        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
+      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 14px;">
+        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
+        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
+        <a href="VACC Recursos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navResources }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
+        <a href="VACC Noticias.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navNews }}</a>
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #C26B41; font-size: 13px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navMission }}</a>
+        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
       </nav>
       <div style="display: flex; align-items: center; gap: 14px;">
         <div style="display: flex; align-items: center; border: 1px solid rgba(28,58,42,0.2); border-radius: 999px; padding: 3px; gap: 2px;">
@@ -250,7 +252,7 @@ class Component extends DCLogic {
     const isEs = lang === 'es';
     const STR = {
       es: {
-        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
+        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navResources: 'Recursos', navNews: 'Noticias', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
         heroEyebrow: 'Historia destacada · Octubre 2025',
         heroTitle: 'Mission Trip Vilcabamba',
         heroSub: 'El Centro Comunitario Adventista de Vilcabamba y la Iglesia Adventista del Séptimo Día tuvieron el privilegio de recibir a cerca de 30 mujeres adventistas, esposas de pastores del sur del Ecuador, en un viaje misionero lleno de servicio y fe.',
@@ -273,7 +275,7 @@ class Component extends DCLogic {
         copyright: '© 2026 Vilcabamba Adventist Community Center · Hecho con propósito en Vilcabamba.'
       },
       en: {
-        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
+        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navResources: 'Resources', navNews: 'News', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
         heroEyebrow: 'Featured story · October 2025',
         heroTitle: 'Mission Trip Vilcabamba',
         heroSub: 'The Vilcabamba Adventist Community Center and the Seventh-day Adventist Church had the privilege of welcoming nearly 30 Adventist women, pastors’ wives from southern Ecuador, on a mission trip full of service and faith.',

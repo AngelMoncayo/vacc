@@ -16,7 +16,7 @@
   html { scroll-behavior: smooth; }
   body { margin: 0; }
   img { max-width: 100%; }
-  @media (max-width: 920px) {
+  @media (max-width: 1040px) {
     .vacc-nav { display: none !important; }
     .vacc-header { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
   }
@@ -41,13 +41,15 @@
           <span class="vacc-brandsub" style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #6E685B; font-weight: 700; margin-top: 2px;">Community Center</span>
         </span>
       </a>
-      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 24px;">
-        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
-        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
-        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
-        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
-        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
-        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
+      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 14px;">
+        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
+        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
+        <a href="VACC Recursos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navResources }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
+        <a href="VACC Noticias.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navNews }}</a>
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
+        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
       </nav>
       <div style="display: flex; align-items: center; gap: 14px;">
         <div style="display: flex; align-items: center; border: 1px solid rgba(28,58,42,0.2); border-radius: 999px; padding: 3px; gap: 2px;">
@@ -197,7 +199,7 @@ class Component extends DCLogic {
     const isEs = lang === 'es';
     const STR = {
       es: {
-        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
+        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navResources: 'Recursos', navNews: 'Noticias', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
         eyebrow: 'Legal', title: 'Política de privacidad', updated: 'Última actualización: junio de 2026',
         intro: 'En el Centro Comunitario Adventista de Vilcabamba (VACC) respetamos tu privacidad. Esta política explica qué información tratamos cuando visitas nuestro sitio o te pones en contacto con nosotros, y cómo la cuidamos.',
         h1: '1. Información que tratamos',
@@ -219,7 +221,7 @@ class Component extends DCLogic {
         copyright: '© 2026 Vilcabamba Adventist Community Center · Hecho con propósito en Vilcabamba.'
       },
       en: {
-        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
+        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navResources: 'Resources', navNews: 'News', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
         eyebrow: 'Legal', title: 'Privacy policy', updated: 'Last updated: June 2026',
         intro: 'At the Vilcabamba Adventist Community Center (VACC) we respect your privacy. This policy explains what information we process when you visit our site or get in touch, and how we protect it.',
         h1: '1. Information we process',

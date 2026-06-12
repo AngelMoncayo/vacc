@@ -17,7 +17,7 @@
   body { margin: 0; }
   img { max-width: 100%; }
   @keyframes vaccPop { from { transform: translateY(16px) scale(0.985); } to { transform: none; } }
-  @media (max-width: 920px) {
+  @media (max-width: 1040px) {
     .vacc-nav { display: none !important; }
     .vacc-header { padding-left: 20px !important; padding-right: 20px !important; gap: 12px !important; }
   }
@@ -51,13 +51,15 @@
         </span>
       </a>
 
-      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 24px;">
-        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #C26B41; font-size: 14.5px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navHome }}</a>
-        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
-        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
-        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
-        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
-        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 14.5px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
+      <nav class="vacc-nav" style="display: flex; align-items: center; gap: 14px;">
+        <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #C26B41; font-size: 13px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navHome }}</a>
+        <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
+        <a href="VACC Recursos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navResources }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
+        <a href="VACC Noticias.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navNews }}</a>
+        <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
+        <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
       </nav>
 
       <div style="display: flex; align-items: center; gap: 14px;">
@@ -512,7 +514,7 @@ class Component extends DCLogic {
 
     const STR = {
       es: {
-        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navResources: 'Recursos', navEvents: 'Eventos', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
+        navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navResources: 'Recursos', navNews: 'Noticias', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
         heroEyebrow: 'Valle de la Longevidad · Loja, Ecuador',
         heroTag: 'Salud para el cuerpo, la mente y el espíritu',
         heroSub: 'Centro Comunitario Adventista de Vilcabamba — al servicio de nuestra comunidad y del mundo.',
@@ -558,7 +560,7 @@ class Component extends DCLogic {
         modalKicker: 'Próximo evento', modalCta: 'Ver evento', modalDismiss: 'Ahora no'
       },
       en: {
-        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navResources: 'Resources', navEvents: 'Events', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
+        navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navResources: 'Resources', navNews: 'News', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
         heroEyebrow: 'Valley of Longevity · Loja, Ecuador',
         heroTag: 'Health for body, mind & spirit',
         heroSub: 'Vilcabamba Adventist Community Center — serving our community and the world.',

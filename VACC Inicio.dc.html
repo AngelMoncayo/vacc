@@ -76,23 +76,42 @@
   </header>
 
   <!-- ===================== HERO ===================== -->
-  <section id="top" style="background: #1C3A2A; color: #F6F1E7;">
-    <div style="height: clamp(340px, 56vh, 560px); background-image: url('assets/vacc-hero.png'); background-size: cover; background-position: center; position: relative;">
-      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,42,30,0.10), rgba(20,42,30,0.20) 55%, #1C3A2A 100%);"></div>
-    </div>
-    <div style="max-width: 880px; margin: 0 auto; padding: 30px 32px 70px; text-align: center;">
+  <section id="top" style="position: relative; background: radial-gradient(125% 95% at 50% 0%, #27513A 0%, #1C3A2A 46%, #16301F 100%); color: #F6F1E7; overflow: hidden;">
+    <div style="position: absolute; top: -180px; left: 50%; transform: translateX(-50%); width: 820px; height: 460px; background: radial-gradient(circle, rgba(214,162,73,0.16), transparent 68%); pointer-events: none;"></div>
+
+    <div style="position: relative; max-width: 1040px; margin: 0 auto; padding: 64px 32px 74px; text-align: center;">
+      <img src="assets/vacc-mark-white.png" alt="Vilcabamba Adventist Community Center" style="height: 58px; width: auto; display: block; margin: 0 auto 28px;">
+
       <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.45); border-radius: 999px; margin-bottom: 26px; background: rgba(214,162,73,0.08);">
         <span style="width: 6px; height: 6px; border-radius: 50%; background: #D6A249;"></span>
         <span style="font-size: 11.5px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A; white-space: nowrap;">{{ t.heroEyebrow }}</span>
       </div>
-      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(38px, 5.2vw, 68px); line-height: 1.06; letter-spacing: -0.5px; margin: 0 0 22px; text-wrap: balance;">{{ t.heroTag }}</h1>
-      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.6; color: rgba(246,241,231,0.85); max-width: 600px; margin: 0 auto 36px;">{{ t.heroSub }}</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+
+      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(40px, 5.4vw, 70px); line-height: 1.05; letter-spacing: -0.5px; margin: 0 auto 22px; max-width: 780px; text-wrap: balance;">{{ t.heroTag }}</h1>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 auto 24px;">
+        <span style="width: 38px; height: 1px; background: rgba(232,199,122,0.5);"></span>
+        <span style="width: 5px; height: 5px; transform: rotate(45deg); background: #D6A249;"></span>
+        <span style="width: 38px; height: 1px; background: rgba(232,199,122,0.5);"></span>
+      </div>
+
+      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.6; color: rgba(246,241,231,0.82); max-width: 560px; margin: 0 auto 36px;">{{ t.heroSub }}</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 58px;">
         <a href="#programas" style="display: inline-flex; align-items: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 16px 28px; border-radius: 999px; box-shadow: 0 10px 28px rgba(194,107,65,0.4);" style-hover="background: #A8552F; transform: translateY(-2px);">
           {{ t.heroBtnPrograms }}
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; background: rgba(246,241,231,0.08); color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 16px 28px; border-radius: 999px; border: 1px solid rgba(246,241,231,0.4);" style-hover="background: rgba(246,241,231,0.18);">{{ t.heroBtnDonate }}</a>
+      </div>
+
+      <!-- Panoramic Vilcabamba landscape window -->
+      <div style="position: relative; border-radius: 22px; overflow: hidden; height: clamp(220px, 30vw, 360px); background-image: url('assets/vacc-vilcabamba.png'); background-size: cover; background-position: center 42%; border: 1px solid rgba(246,241,231,0.14); box-shadow: 0 34px 70px rgba(0,0,0,0.42);">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,42,30,0.04), rgba(20,42,30,0.20) 55%, rgba(20,42,30,0.62));"></div>
+        <div style="position: absolute; left: 20px; bottom: 18px; display: inline-flex; align-items: center; gap: 9px; background: rgba(16,32,22,0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(232,199,122,0.32); padding: 8px 15px; border-radius: 999px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10z" stroke="#E8C77A" stroke-width="1.7"/><circle cx="12" cy="11" r="2.3" stroke="#E8C77A" stroke-width="1.7"/></svg>
+          <span style="font-size: 12px; letter-spacing: 1px; font-weight: 700; color: #E8C77A; white-space: nowrap;">Vilcabamba · Loja, Ecuador</span>
+        </div>
       </div>
     </div>
   </section>

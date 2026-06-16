@@ -68,16 +68,15 @@
     </div>
   </header>
 
-  <section style="background: #1C3A2A; color: #F6F1E7;">
-    <div style="height: clamp(260px, 42vh, 420px); background-image: url('assets/vacc-hero.png'); background-size: cover; background-position: center; position: relative;">
-      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(20,42,30,0.20), rgba(20,42,30,0.35) 55%, #1C3A2A 100%);"></div>
-    </div>
-    <div style="max-width: 920px; margin: 0 auto; padding: 14px 32px 72px; text-align: center;">
-      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.45); border-radius: 999px; margin-bottom: 24px; background: rgba(214,162,73,0.08);">
+  <section style="position: relative; background: #16301F; color: #F6F1E7; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: url('assets/vacc-vilcabamba.png'); background-size: cover; background-position: center 42%;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16,32,22,0.58), rgba(16,32,22,0.72) 58%, rgba(16,32,22,0.90));"></div>
+    <div style="position: relative; max-width: 920px; margin: 0 auto; padding: 86px 32px 90px; text-align: center;">
+      <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.55); border-radius: 999px; margin-bottom: 24px; background: rgba(16,32,22,0.42); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);">
         <span style="width: 6px; height: 6px; border-radius: 50%; background: #D6A249;"></span>
         <span style="font-size: 11.5px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A;">{{ t.heroEyebrow }}</span>
       </div>
-      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(32px, 4.4vw, 56px); line-height: 1.08; letter-spacing: -0.5px; margin: 0; text-wrap: balance;">{{ t.heroTitle }}</h1>
+      <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.06; letter-spacing: -0.5px; margin: 0; text-wrap: balance; text-shadow: 0 2px 28px rgba(0,0,0,0.4);">{{ t.heroTitle }}</h1>
     </div>
   </section>
 
@@ -127,7 +126,7 @@
         </div>
         <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.1; margin: 0; color: #1C3A2A;">{{ t.leadTitle }}</h2>
       </div>
-      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 820px; margin: 0 auto;">
+      <div class="vacc-two" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1080px; margin: 0 auto;">
         <div style="background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 18px; padding: 32px; display: flex; align-items: center; gap: 22px;">
           <span style="flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: #1C3A2A; color: #E8C77A; font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center;">JA</span>
           <span>
@@ -136,10 +135,17 @@
           </span>
         </div>
         <div style="background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 18px; padding: 32px; display: flex; align-items: center; gap: 22px;">
-          <span style="flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: #C26B41; color: #FFF; font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center;">RP</span>
+          <span style="flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: #C26B41; color: #FFF; font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center;">CM</span>
           <span>
             <span style="display: block; font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #1C3A2A; line-height: 1.2;">{{ t.lead2Name }}</span>
             <span style="display: block; font-size: 13.5px; color: #6E685B; margin-top: 5px; line-height: 1.4;">{{ t.lead2Role }}</span>
+          </span>
+        </div>
+        <div style="background: #FFF; border: 1px solid rgba(28,58,42,0.1); border-radius: 18px; padding: 32px; display: flex; align-items: center; gap: 22px;">
+          <span style="flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%; background: #2E5740; color: #E8C77A; font-family: 'Newsreader', serif; font-size: 26px; font-weight: 600; display: flex; align-items: center; justify-content: center;">RP</span>
+          <span>
+            <span style="display: block; font-family: 'Newsreader', serif; font-size: 22px; font-weight: 600; color: #1C3A2A; line-height: 1.2;">{{ t.lead3Name }}</span>
+            <span style="display: block; font-size: 13.5px; color: #6E685B; margin-top: 5px; line-height: 1.4;">{{ t.lead3Role }}</span>
           </span>
         </div>
       </div>
@@ -268,7 +274,8 @@ class Component extends DCLogic {
         visionText: 'Visualizamos una comunidad fuerte y unida, donde cada persona se sienta valorada, apoyada y capaz de prosperar. Un entorno donde la educación, la salud y la participación se entrelazan en una red de bienestar sostenible, con la esperanza, el amor y la compasión como base de todas nuestras acciones.',
         leadEyebrow: 'Liderazgo', leadTitle: 'Quienes guían este propósito',
         lead1Name: 'Jhonny Aillón', lead1Role: 'Pastor — Vilcabamba Adventist Community Center',
-        lead2Name: 'Rosa de Proaño', lead2Role: 'Directora del Centro Comunitario de Vilcabamba',
+        lead2Name: 'Dra. Claudia Medina León', lead2Role: 'Directora del Centro Comunitario de Vilcabamba',
+        lead3Name: 'Dra. Rosa de Proaño', lead3Role: 'Consejera del Centro Comunitario de Vilcabamba',
         ctaTitle: 'Sé parte de esta comunidad', ctaSub: 'Conoce nuestros programas, participa en nuestros eventos o apóyanos para seguir transformando vidas.',
         ctaBtn: 'Contáctanos',
         footAbout: 'Centro Comunitario Adventista de Vilcabamba. Promovemos la salud integral —cuerpo, mente y espíritu— al servicio de la comunidad y del mundo.',
@@ -292,7 +299,8 @@ class Component extends DCLogic {
         visionText: 'We envision a strong, united community where every person feels valued, supported and able to thrive. An environment where education, health and participation interweave into a sustainable web of well-being, with hope, love and compassion as the foundation of all we do.',
         leadEyebrow: 'Leadership', leadTitle: 'The people who guide this purpose',
         lead1Name: 'Jhonny Aillón', lead1Role: 'Pastor — Vilcabamba Adventist Community Center',
-        lead2Name: 'Rosa de Proaño', lead2Role: 'Head of the Vilcabamba Community Center',
+        lead2Name: 'Dr. Claudia Medina León', lead2Role: 'Director of the Vilcabamba Community Center',
+        lead3Name: 'Dr. Rosa de Proaño', lead3Role: 'Counselor of the Vilcabamba Community Center',
         ctaTitle: 'Be part of this community', ctaSub: 'Discover our programs, join our events, or support us so we can keep transforming lives.',
         ctaBtn: 'Contact us',
         footAbout: 'Vilcabamba Adventist Community Center. We promote whole-person health —body, mind and spirit— serving the community and the world.',

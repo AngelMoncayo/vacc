@@ -154,6 +154,18 @@
         </div>
       </div>
 
+      <div id="r7" style="background: #FFF; border: 1px solid rgba(28,58,42,0.12); border-radius: 18px; padding: 34px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div>
+          <span style="display: inline-block; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 8px;">{{ t.r7tag }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.15; margin: 0 0 6px; color: #1C3A2A;">{{ t.r7title }}</h2>
+          <p style="font-size: 15px; line-height: 1.6; color: #6E685B; margin: 0; max-width: 520px;">{{ t.r7desc }}</p>
+        </div>
+        <a href="assets/plato-qvs.pdf" download style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 13px 22px; border-radius: 999px;" style-hover="background: #A8552F;">
+          {{ t.downloadLabel }}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
       <div id="r3" style="background: #FFF; border: 1px solid rgba(28,58,42,0.12); border-radius: 18px; padding: 34px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
         <div>
           <span style="display: inline-block; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 8px;">{{ t.r3tag }}</span>
@@ -263,6 +275,7 @@ class Component extends DCLogic {
         r5tag: 'Hábito diario', r5title: 'El Diario de Gratitud', r5desc: 'Reconoce y celebra lo recibido cada día con esta guía práctica.',
         r6tag: 'Actividad física', r6title: 'Vamos a Movernos', r6desc: 'El reto 60/30 para incorporar el movimiento a tu rutina diaria.',
         r3tag: 'Alimentación', r3title: 'Recetario Saludable', r3desc: '15 días de alimentación saludable con recetas sencillas y nutritivas.',
+        r7tag: 'Alimentación', r7title: 'El Plato Saludable', r7desc: 'El modelo del plato QVS para armar comidas balanceadas y nutritivas cada día.',
         footAbout: 'Centro Comunitario Adventista de Vilcabamba. Promovemos la salud integral —cuerpo, mente y espíritu— al servicio de la comunidad y del mundo.',
         footExplore: 'Explorar', footResources: 'Recursos', footContact: 'Contáctanos',
         fInicio: 'Inicio', fAbout: 'Conócenos', fPrograms: 'Programas', fEvents: 'Eventos',
@@ -281,6 +294,7 @@ class Component extends DCLogic {
         r5tag: 'Daily habit', r5title: 'The Gratitude Journal', r5desc: 'Recognize and celebrate what you receive each day with this practical guide.',
         r6tag: 'Physical activity', r6title: "Let's Get Moving", r6desc: 'The 60/30 challenge to bring movement into your daily routine.',
         r3tag: 'Nutrition', r3title: 'Healthy Recipe Book', r3desc: '15 days of healthy eating with simple, nutritious recipes.',
+        r7tag: 'Nutrition', r7title: 'The Healthy Plate', r7desc: 'The QVS plate model to build balanced, nutritious meals every day.',
         footAbout: 'Vilcabamba Adventist Community Center. We promote whole-person health —body, mind and spirit— serving the community and the world.',
         footExplore: 'Explore', footResources: 'Resources', footContact: 'Contact us',
         fInicio: 'Home', fAbout: 'About', fPrograms: 'Programs', fEvents: 'Events',

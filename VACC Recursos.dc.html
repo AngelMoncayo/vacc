@@ -27,6 +27,10 @@
   }
   @media (max-width: 760px) {
     .vacc-foot { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+    .vacc-rgrid { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+  @media (max-width: 460px) {
+    .vacc-rgrid { grid-template-columns: repeat(2, 1fr) !important; }
   }
   @media (max-width: 560px) {
     .vacc-foot { grid-template-columns: 1fr !important; }
@@ -84,6 +88,30 @@
   <section class="vacc-sec" style="background: #F6F1E7; padding: 80px 0;">
     <div style="max-width: 980px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 64px;">
 
+      <div id="rR">
+        <div class="vacc-rhead" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 20px;">
+          <div>
+            <span style="display: inline-block; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 8px;">{{ t.rRtag }}</span>
+            <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(24px, 2.8vw, 32px); line-height: 1.15; margin: 0 0 6px; color: #1C3A2A;">{{ t.rRtitle }}</h2>
+            <p style="font-size: 15px; line-height: 1.6; color: #6E685B; margin: 0; max-width: 520px;">{{ t.rRdesc }}</p>
+          </div>
+        </div>
+        <a href="assets/remedios/00-portada.png" download target="_blank" rel="noopener" style="display: block; border-radius: 18px; overflow: hidden; border: 1px solid rgba(28,58,42,0.12); box-shadow: 0 14px 34px rgba(28,58,42,0.1); margin-bottom: 18px;">
+          <img src="assets/remedios/00-portada.png" alt="Los 8 Remedios Naturales" style="display: block; width: 100%;">
+        </a>
+        <div class="vacc-rgrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <sc-for list="{{ remedios }}" as="r" hint-placeholder-count="8">
+            <a href="{{ r.src }}" download target="_blank" rel="noopener" style="display: block; text-decoration: none; border-radius: 14px; overflow: hidden; border: 1px solid rgba(28,58,42,0.12); box-shadow: 0 8px 20px rgba(28,58,42,0.08); background: #FFF; transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,58,42,0.16);">
+              <img src="{{ r.src }}" alt="{{ r.label }}" style="display: block; width: 100%;" loading="lazy">
+              <span style="display: flex; align-items: center; gap: 8px; padding: 11px 13px; font-size: 13px; font-weight: 700; color: #1C3A2A;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="#C26B41" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {{ r.label }}
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+
       <div id="r1">
         <div class="vacc-rhead" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 20px;">
           <div>
@@ -109,34 +137,6 @@
         </div>
         <div style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(28,58,42,0.12); box-shadow: 0 14px 34px rgba(28,58,42,0.1); background: #FFF;">
           <iframe src="assets/efectos-del-programa.pdf" style="height: 560px;" loading="lazy" title="Efectos del Programa"></iframe>
-        </div>
-      </div>
-
-      <div id="r4">
-        <div class="vacc-rhead" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 20px;">
-          <div>
-            <span style="display: inline-block; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 8px;">{{ t.r4tag }}</span>
-            <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(24px, 2.8vw, 32px); line-height: 1.15; margin: 0 0 6px; color: #1C3A2A;">{{ t.r4title }}</h2>
-            <p style="font-size: 15px; line-height: 1.6; color: #6E685B; margin: 0; max-width: 520px;">{{ t.r4desc }}</p>
-          </div>
-          <a href="https://drive.google.com/file/d/1Aan00tl9YwnuUJ64ckSkJZwvNqpYLXyg/view" target="_blank" rel="noopener" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 14px; font-weight: 700; padding: 11px 18px; border-radius: 999px;" style-hover="background: #A8552F;">{{ t.downloadLabel }}</a>
-        </div>
-        <div style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(28,58,42,0.12); box-shadow: 0 14px 34px rgba(28,58,42,0.1); background: #2E5740;">
-          <iframe src="https://drive.google.com/file/d/1Aan00tl9YwnuUJ64ckSkJZwvNqpYLXyg/preview" style="height: 540px;" loading="lazy" allow="autoplay"></iframe>
-        </div>
-      </div>
-
-      <div id="r5">
-        <div class="vacc-rhead" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 20px;">
-          <div>
-            <span style="display: inline-block; font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 8px;">{{ t.r5tag }}</span>
-            <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(24px, 2.8vw, 32px); line-height: 1.15; margin: 0 0 6px; color: #1C3A2A;">{{ t.r5title }}</h2>
-            <p style="font-size: 15px; line-height: 1.6; color: #6E685B; margin: 0; max-width: 520px;">{{ t.r5desc }}</p>
-          </div>
-          <a href="https://drive.google.com/file/d/18_69lfK4Xv-ZAV_WoNYjvZxCJsPafTys/view" target="_blank" rel="noopener" style="flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 14px; font-weight: 700; padding: 11px 18px; border-radius: 999px;" style-hover="background: #A8552F;">{{ t.downloadLabel }}</a>
-        </div>
-        <div style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(28,58,42,0.12); box-shadow: 0 14px 34px rgba(28,58,42,0.1); background: #2E5740;">
-          <iframe src="https://drive.google.com/file/d/18_69lfK4Xv-ZAV_WoNYjvZxCJsPafTys/preview" style="height: 540px;" loading="lazy" allow="autoplay"></iframe>
         </div>
       </div>
 
@@ -269,6 +269,8 @@ class Component extends DCLogic {
         heroEyebrow: 'Recursos gratuitos', heroTitle: 'Guías para vivir mejor, hoy mismo',
         heroSub: 'Lee nuestras guías digitales aquí mismo, sin salir del sitio, y comienza tu camino hacia un estilo de vida más sano. Disponibles para todos, en cualquier lugar del mundo.',
         openLabel: 'Abrir', downloadLabel: 'Descargar',
+        rRtag: 'Serie infográfica', rRtitle: 'Los 8 Remedios Naturales', rRdesc: 'Ocho fichas para cuidar el templo del Espíritu Santo: descarga la portada y cada remedio para compartir, imprimir o guardar.',
+        rmAlimentacion: '01 · Alimentación', rmAgua: '02 · Agua', rmAire: '03 · Aire Puro', rmLuz: '04 · Luz del Sol', rmEjercicio: '05 · Ejercicio', rmReposo: '06 · Reposo', rmTemperancia: '07 · Temperancia', rmConfianza: '08 · Confianza en Dios',
         r1tag: 'Guía digital', r1title: '8 Hábitos Saludables', r1desc: 'Un hábito por semana para construir, paso a paso, un estilo de vida saludable.',
         r2tag: 'Guía digital', r2title: 'Efectos del Programa', r2desc: 'Indicadores y resultados de salud de quienes han vivido el programa.',
         r4tag: 'Bienestar mental', r4title: 'Mente Sana', r4desc: 'Un modelo de bienestar mental basado en una cosmovisión bíblica para vivir en paz.',
@@ -288,6 +290,8 @@ class Component extends DCLogic {
         heroEyebrow: 'Free resources', heroTitle: 'Guides to live better, starting today',
         heroSub: 'Read our digital guides right here, without leaving the site, and begin your journey toward a healthier lifestyle. Available to everyone, anywhere in the world.',
         openLabel: 'Open', downloadLabel: 'Download',
+        rRtag: 'Infographic series', rRtitle: 'The 8 Natural Remedies', rRdesc: 'Eight cards to care for the temple of the Holy Spirit: download the cover and each remedy to share, print or save.',
+        rmAlimentacion: '01 · Nutrition', rmAgua: '02 · Water', rmAire: '03 · Fresh Air', rmLuz: '04 · Sunlight', rmEjercicio: '05 · Exercise', rmReposo: '06 · Rest', rmTemperancia: '07 · Temperance', rmConfianza: '08 · Trust in God',
         r1tag: 'Digital guide', r1title: '8 Healthy Habits', r1desc: 'One habit per week to build a healthy lifestyle, step by step.',
         r2tag: 'Digital guide', r2title: 'Program Effects', r2desc: 'Health indicators and results from those who have lived the program.',
         r4tag: 'Mental wellness', r4title: 'Healthy Mind', r4desc: 'A mental well-being model grounded in a biblical worldview, to live in peace.',
@@ -304,8 +308,20 @@ class Component extends DCLogic {
       }
     };
     const active = '#1C3A2A', activeC = '#FFFFFF', inact = 'transparent', inactC = '#5B6B5E';
+    const tt = STR[lang];
+    const remedios = [
+      { src: 'assets/remedios/01-alimentacion.png', label: tt.rmAlimentacion },
+      { src: 'assets/remedios/02-agua.png', label: tt.rmAgua },
+      { src: 'assets/remedios/03-aire-puro.png', label: tt.rmAire },
+      { src: 'assets/remedios/04-luz-del-sol.png', label: tt.rmLuz },
+      { src: 'assets/remedios/05-ejercicio.png', label: tt.rmEjercicio },
+      { src: 'assets/remedios/06-reposo.png', label: tt.rmReposo },
+      { src: 'assets/remedios/07-temperancia.png', label: tt.rmTemperancia },
+      { src: 'assets/remedios/08-confianza-en-dios.png', label: tt.rmConfianza }
+    ];
     return {
       t: STR[lang],
+      remedios,
       setEs: this.setLang('es'), setEn: this.setLang('en'),
       esBg: isEs ? active : inact, esColor: isEs ? activeC : inactC,
       enBg: !isEs ? active : inact, enColor: !isEs ? activeC : inactC

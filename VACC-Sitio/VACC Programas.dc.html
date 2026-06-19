@@ -22,7 +22,7 @@
   }
   @media (max-width: 860px) {
     .vacc-two { grid-template-columns: 1fr !important; gap: 36px !important; }
-    .vacc-cards { grid-template-columns: 1fr !important; }
+    .vacc-flip { direction: ltr !important; }
     .vacc-sec { padding-top: 72px !important; padding-bottom: 72px !important; }
   }
   @media (max-width: 760px) {
@@ -49,9 +49,9 @@
       <nav class="vacc-nav" style="display: flex; align-items: center; gap: 14px;">
         <a href="VACC Inicio.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navHome }}</a>
         <a href="VACC Conocenos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navAbout }}</a>
-        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navPrograms }}</a>
+        <a href="VACC Programas.dc.html" style="text-decoration: none; color: #C26B41; font-size: 13px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navPrograms }}</a>
         <a href="VACC Recursos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navResources }}</a>
-        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #C26B41; font-size: 13px; font-weight: 700;" style-hover="color: #A8552F;">{{ t.navEvents }}</a>
+        <a href="VACC Eventos.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navEvents }}</a>
         <a href="VACC Noticias.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navNews }}</a>
         <a href="VACC Mission Trip.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navMission }}</a>
         <a href="VACC Contacto.dc.html" style="text-decoration: none; color: #3A372F; font-size: 13px; font-weight: 600;" style-hover="color: #C26B41;">{{ t.navContact }}</a>
@@ -69,7 +69,7 @@
     </div>
   </header>
 
-  <section style="background: #1C3A2A; color: #F6F1E7; padding: 70px 0 76px; position: relative; overflow: hidden;">
+  <section style="background: #1C3A2A; color: #F6F1E7; padding: 70px 0 80px; position: relative; overflow: hidden;">
     <div style="position: absolute; top: -120px; right: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(214,162,73,0.16), transparent 70%);"></div>
     <div style="max-width: 820px; margin: 0 auto; padding: 0 32px; text-align: center; position: relative;">
       <div style="display: inline-flex; align-items: center; gap: 10px; padding: 7px 16px; border: 1px solid rgba(214,162,73,0.45); border-radius: 999px; margin-bottom: 24px; background: rgba(214,162,73,0.08);">
@@ -77,90 +77,69 @@
         <span style="font-size: 11.5px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #E8C77A;">{{ t.heroEyebrow }}</span>
       </div>
       <h1 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.06; letter-spacing: -0.5px; margin: 0 0 20px; text-wrap: balance;">{{ t.heroTitle }}</h1>
-      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.65; color: rgba(246,241,231,0.85); max-width: 600px; margin: 0 auto;">{{ t.heroSub }}</p>
+      <p style="font-size: clamp(16px, 1.7vw, 19px); line-height: 1.65; color: rgba(246,241,231,0.85); max-width: 620px; margin: 0 auto;">{{ t.heroSub }}</p>
     </div>
   </section>
 
-  <section class="vacc-sec" style="background: #F6F1E7; padding: 90px 0;">
-    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
-      <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 28px;">
-        <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
-        <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.upcomingEyebrow }}</span>
+  <section class="vacc-sec" style="background: #F6F1E7; padding: 100px 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px; display: flex; flex-direction: column; gap: 90px;">
+
+      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 24px 54px rgba(28,58,42,0.18); background: #2E5740;">
+          <img src="assets/photos/2031.webp" alt="Centro de Capacitaciones" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div>
+          <span style="display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">{{ t.p1kicker }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -0.4px; margin: 0 0 8px; color: #1C3A2A;">{{ t.p1title }}</h2>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #C26B41; margin: 0 0 20px;">{{ t.p1slogan }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0 0 14px;">{{ t.p1p1 }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0;">{{ t.p1p2 }}</p>
+        </div>
       </div>
 
-      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 60px rgba(28,58,42,0.18); background: #FFF; border: 1px solid rgba(28,58,42,0.08);">
-        <div style="background: #2E5740; min-height: 320px;">
-          <img src="assets/evento-panaderia.png" alt="Taller de Panadería" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-        <div style="padding: 46px 44px; display: flex; flex-direction: column; justify-content: center;">
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 16px;">
-            <span style="width: 7px; height: 7px; border-radius: 50%; background: #C26B41;"></span>{{ t.evKicker }}
-          </span>
-          <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(26px, 3vw, 36px); line-height: 1.12; color: #1C3A2A; margin: 0 0 14px;">{{ t.evTitle }}</h2>
-          <div style="display: flex; flex-direction: column; gap: 9px; margin: 0 0 22px;">
-            <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #4A463C;">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#C26B41" stroke-width="1.7"/><path d="M3 9h18M8 3v4M16 3v4" stroke="#C26B41" stroke-width="1.7" stroke-linecap="round"/></svg>
-              {{ t.evDate }}
-            </span>
-            <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #4A463C;">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10z" stroke="#C26B41" stroke-width="1.7"/><circle cx="12" cy="11" r="2.4" stroke="#C26B41" stroke-width="1.7"/></svg>
-              {{ t.evPlace }}
-            </span>
+      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="order: 2;">
+          <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 24px 54px rgba(28,58,42,0.18); background: #2E5740;">
+            <img src="assets/photos/2036.webp" alt="Estilo de vida saludable" style="width: 100%; height: auto; display: block;">
           </div>
-          <p style="font-size: 15.5px; line-height: 1.65; color: #5A554A; margin: 0 0 26px;">{{ t.evDesc }}</p>
-          <a href="https://wa.me/593993714307?text={{ waText }}" target="_blank" rel="noopener" style="display: inline-flex; align-self: flex-start; align-items: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 999px;" style-hover="background: #A8552F;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
-            {{ t.evBtn }}
+        </div>
+        <div style="order: 1;">
+          <span style="display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">{{ t.p2kicker }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -0.4px; margin: 0 0 8px; color: #1C3A2A;">{{ t.p2title }}</h2>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #C26B41; margin: 0 0 20px;">{{ t.p2slogan }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0 0 14px;">{{ t.p2p1 }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0;">{{ t.p2p2 }}</p>
+        </div>
+      </div>
+
+      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+        <div style="border-radius: 22px; overflow: hidden; box-shadow: 0 24px 54px rgba(28,58,42,0.18); background: #2E5740;">
+          <img src="assets/photos/1049.webp" alt="Proyecto de Donación" style="width: 100%; height: auto; display: block;">
+        </div>
+        <div>
+          <span style="display: inline-block; font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 14px;">{{ t.p3kicker }}</span>
+          <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; letter-spacing: -0.4px; margin: 0 0 8px; color: #1C3A2A;">{{ t.p3title }}</h2>
+          <p style="font-family: 'Newsreader', serif; font-style: italic; font-size: 19px; color: #C26B41; margin: 0 0 20px;">{{ t.p3slogan }}</p>
+          <p style="font-size: 16.5px; line-height: 1.72; color: #4A463C; margin: 0;">{{ t.p3p1 }}</p>
+          <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 13px 24px; border-radius: 999px;" style-hover="background: #A8552F;">
+            {{ t.p3btn }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </div>
+
     </div>
   </section>
 
-  <section class="vacc-sec" style="background: #FBF8F1; padding: 90px 0; border-top: 1px solid rgba(28,58,42,0.08);">
-    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
-      <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 36px;">
-        <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
-        <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.pastEyebrow }}</span>
+  <section style="background: #C26B41; color: #FFF; padding: 76px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; bottom: -140px; left: -100px; width: 360px; height: 360px; border-radius: 50%; background: rgba(255,255,255,0.07);"></div>
+    <div style="max-width: 760px; margin: 0 auto; padding: 0 32px; text-align: center; position: relative;">
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; margin: 0 0 18px; text-wrap: balance;">{{ t.ctaTitle }}</h2>
+      <p style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.92); max-width: 540px; margin: 0 auto 30px;">{{ t.ctaSub }}</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+        <a href="VACC Contacto.dc.html" style="display: inline-flex; align-items: center; gap: 9px; background: #FFF; color: #A8552F; text-decoration: none; font-size: 16px; font-weight: 800; padding: 15px 30px; border-radius: 999px; box-shadow: 0 12px 28px rgba(0,0,0,0.2);" style-hover="transform: translateY(-2px);">{{ t.ctaBtn }}</a>
+        <a href="https://wa.me/593993714307" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: transparent; color: #FFF; text-decoration: none; font-size: 16px; font-weight: 700; padding: 15px 30px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.7);" style-hover="background: rgba(255,255,255,0.12);">{{ t.ctaBtn2 }}</a>
       </div>
-      <div class="vacc-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 26px;">
-
-        <div style="background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05);">
-          <div style="height: 190px; overflow: hidden; background: #2E5740;"><img src="assets/photos/2063.webp" alt="Cocina saludable" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
-          <div style="padding: 22px 24px 26px;">
-            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #8A8270;">{{ t.past1tag }}</span>
-            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 21px; margin: 9px 0 8px; color: #1C3A2A; line-height: 1.2;">{{ t.past1title }}</h3>
-            <p style="font-size: 14px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.past1desc }}</p>
-          </div>
-        </div>
-
-        <div style="background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05);">
-          <div style="height: 190px; overflow: hidden; background: #2E5740;"><img src="assets/photos/1352.webp" alt="Feria de la salud" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
-          <div style="padding: 22px 24px 26px;">
-            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #8A8270;">{{ t.past2tag }}</span>
-            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 21px; margin: 9px 0 8px; color: #1C3A2A; line-height: 1.2;">{{ t.past2title }}</h3>
-            <p style="font-size: 14px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.past2desc }}</p>
-          </div>
-        </div>
-
-        <div style="background: #FFF; border-radius: 20px; overflow: hidden; border: 1px solid rgba(28,58,42,0.08); box-shadow: 0 4px 14px rgba(28,58,42,0.05);">
-          <div style="height: 190px; overflow: hidden; background: #2E5740;"><img src="assets/photos/2031.webp" alt="Talleres preventivos" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
-          <div style="padding: 22px 24px 26px;">
-            <span style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; font-weight: 700; color: #8A8270;">{{ t.past3tag }}</span>
-            <h3 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: 21px; margin: 9px 0 8px; color: #1C3A2A; line-height: 1.2;">{{ t.past3title }}</h3>
-            <p style="font-size: 14px; line-height: 1.6; color: #6E685B; margin: 0;">{{ t.past3desc }}</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section style="background: #1C3A2A; color: #F6F1E7; padding: 96px 0;">
-    <div style="max-width: 820px; margin: 0 auto; padding: 0 32px; text-align: center;">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style="margin-bottom: 22px;"><path d="M7 7h4v4c0 3-1.5 5-4 6M14 7h4v4c0 3-1.5 5-4 6" stroke="#E8C77A" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <p style="font-family: 'Newsreader', serif; font-weight: 400; font-style: italic; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.4; margin: 0 0 24px; text-wrap: balance;">{{ t.quote }}</p>
-      <span style="font-size: 13.5px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; color: #E8C77A;">{{ t.quoteBy }}</span>
     </div>
   </section>
 
@@ -262,20 +241,20 @@ class Component extends DCLogic {
     const STR = {
       es: {
         navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navResources: 'Recursos', navNews: 'Noticias', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
-        heroEyebrow: 'Eventos', heroTitle: 'Encuentros que inspiran y transforman',
-        heroSub: 'Cada evento está diseñado para que vivas una experiencia significativa: aprender con calidad, nutrirte de conocimiento útil y transformar tus hábitos hacia un estilo de vida más saludable y consciente.',
-        upcomingEyebrow: 'Próximo evento',
-        evKicker: 'Inscripciones abiertas', evTitle: 'Taller de Panadería Comercial Saludable',
-        evDate: 'Domingo 28 de junio · 9h00 · Costo $10',
-        evPlace: 'El Atillo, vía a Yamburara Alto — Vilcabamba',
-        evDesc: 'Ven, aprende y llévate tu propio producto. Una jornada práctica para preparar panes nutritivos, sin aditivos y con mucho amor. Cupos limitados.',
-        evBtn: 'Reservar mi cupo',
-        pastEyebrow: 'Eventos pasados',
-        past1tag: 'Nutrición', past1title: 'Talleres de Cocina Saludable', past1desc: 'Encuentros prácticos para aprender a preparar alimentos nutritivos y deliciosos en familia.',
-        past2tag: 'Comunidad', past2title: 'Feria de la Salud', past2desc: 'Jornadas para las familias que promueven la salud integral y el cuidado mutuo en la comunidad.',
-        past3tag: 'Prevención', past3title: 'Talleres Preventivos contra la Violencia', past3desc: 'Espacios de formación y diálogo para construir entornos más seguros, sanos y respetuosos.',
-        quote: '“Los talleres del Centro Comunitario de Vilcabamba no solo nos enseñan, sino que nos inspiran a construir un estilo de vida más saludable, consciente y pleno.”',
-        quoteBy: 'Patricia · Participante',
+        heroEyebrow: 'Programas y servicios',
+        heroTitle: 'Experiencias que transforman vidas',
+        heroSub: 'Nuestros programas fortalecen el tejido social: celebran la diversidad y crean espacios para la expresión creativa y el desarrollo de las capacidades de cada persona de la comunidad.',
+        p1kicker: 'Centro de Capacitaciones', p1title: 'Sembrando Conocimiento', p1slogan: '“Capacitación que impulsa el cambio”',
+        p1p1: 'Este programa ofrece capacitaciones que impulsan el cambio positivo: clases de habilidades laborales, programas de desarrollo profesional y actividades creativas, buscando empoderar a nuestra comunidad para alcanzar su máximo potencial.',
+        p1p2: 'Tu donación respalda directamente estas iniciativas, creando oportunidades para el crecimiento personal y profesional. Únete a la construcción de un futuro más brillante.',
+        p2kicker: 'Estilo de vida saludable', p2title: 'Hábitos que transforman vidas', p2slogan: '“Equilibrio, conciencia y bienestar integral”',
+        p2p1: 'Promover un estilo de vida saludable es mucho más que hablar de buena alimentación o ejercicio: es fomentar una forma de vivir con equilibrio, conciencia y bienestar integral. Impulsamos espacios que invitan a reconectar con la salud física, emocional, social y espiritual.',
+        p2p2: 'A través de talleres, encuentros y actividades fortalecemos hábitos sostenibles y transformadores. Creemos que pequeños cambios diarios generan grandes impactos en la calidad de vida de toda la comunidad.',
+        p3kicker: 'Proyecto de Donación', p3title: 'Raíces y Creatividad', p3slogan: '“Cada aporte se convierte en acción”',
+        p3p1: 'Nuestro Programa de Donaciones es el motor que impulsa el impacto positivo en la comunidad. Cada contribución, grande o pequeña, se traduce en acciones concretas que mejoran vidas: mantenemos y expandimos programas educativos, servicios de salud y oportunidades de desarrollo. Ya sea una donación única o un compromiso mensual, cada aporte cuenta.',
+        p3btn: 'Quiero apoyar',
+        ctaTitle: '¿Listo para ser parte del cambio?', ctaSub: 'Participa en nuestros programas, ofrécete como voluntario o apóyanos para seguir transformando vidas en Vilcabamba.',
+        ctaBtn: 'Contáctanos', ctaBtn2: 'Escribir por WhatsApp',
         footAbout: 'Centro Comunitario Adventista de Vilcabamba. Promovemos la salud integral —cuerpo, mente y espíritu— al servicio de la comunidad y del mundo.',
         footExplore: 'Explorar', footResources: 'Recursos', footContact: 'Contáctanos',
         fInicio: 'Inicio', fAbout: 'Conócenos', fPrograms: 'Programas', fEvents: 'Eventos',
@@ -285,20 +264,20 @@ class Component extends DCLogic {
       },
       en: {
         navHome: 'Home', navAbout: 'About', navPrograms: 'Programs', navEvents: 'Events', navResources: 'Resources', navNews: 'News', navMission: 'Mission Trip', navContact: 'Contact', ctaWrite: 'Message us',
-        heroEyebrow: 'Events', heroTitle: 'Gatherings that inspire and transform',
-        heroSub: 'Every event is designed for a meaningful experience: learning with quality, gaining useful knowledge and transforming your habits toward a healthier, more conscious lifestyle.',
-        upcomingEyebrow: 'Upcoming event',
-        evKicker: 'Registration open', evTitle: 'Healthy Commercial Baking Workshop',
-        evDate: 'Sunday, June 28 · 9:00 AM · $10',
-        evPlace: 'El Atillo, road to Yamburara Alto — Vilcabamba',
-        evDesc: 'Come, learn and take your own product home. A hands-on session to make nutritious breads, free of additives and full of love. Limited spots.',
-        evBtn: 'Reserve my spot',
-        pastEyebrow: 'Past events',
-        past1tag: 'Nutrition', past1title: 'Healthy Cooking Workshops', past1desc: 'Hands-on gatherings to learn how to prepare nutritious, delicious food as a family.',
-        past2tag: 'Community', past2title: 'Health Fair', past2desc: 'Family gatherings that promote whole-person health and mutual care in the community.',
-        past3tag: 'Prevention', past3title: 'Preventive Workshops against Violence', past3desc: 'Training and dialogue spaces to build safer, healthier and more respectful environments.',
-        quote: '“The workshops at the Vilcabamba Community Center don’t just teach us — they inspire us to build a healthier, more conscious and fuller way of life.”',
-        quoteBy: 'Patricia · Participant',
+        heroEyebrow: 'Programs & services',
+        heroTitle: 'Experiences that transform lives',
+        heroSub: 'Our programs strengthen the social fabric: they celebrate diversity and create spaces for creative expression and the development of every community member’s capabilities.',
+        p1kicker: 'Training Center', p1title: 'Sowing Knowledge', p1slogan: '“Training that drives change”',
+        p1p1: 'This program offers training that drives positive change: job-skills classes, professional development and creative activities, seeking to empower our community to reach its full potential.',
+        p1p2: 'Your donation directly supports these initiatives, creating opportunities for personal and professional growth. Join us in building a brighter future.',
+        p2kicker: 'Healthy lifestyle', p2title: 'Habits that transform lives', p2slogan: '“Balance, awareness & whole-person well-being”',
+        p2p1: 'Promoting a healthy lifestyle is much more than talking about good food or exercise: it means fostering a way of living with balance, awareness and whole-person well-being. We create spaces that invite people to reconnect with their physical, emotional, social and spiritual health.',
+        p2p2: 'Through workshops, gatherings and activities we strengthen sustainable, transformative habits. We believe small daily changes create a big impact on the quality of life of the whole community.',
+        p3kicker: 'Giving Project', p3title: 'Roots & Creativity', p3slogan: '“Every gift becomes action”',
+        p3p1: 'Our Giving Program is the engine driving positive impact in the community. Every contribution, large or small, becomes concrete action that improves lives: we sustain and expand educational programs, health services and development opportunities. Whether a one-time gift or a monthly commitment, every contribution counts.',
+        p3btn: 'I want to support',
+        ctaTitle: 'Ready to be part of the change?', ctaSub: 'Join our programs, volunteer, or support us so we can keep transforming lives in Vilcabamba.',
+        ctaBtn: 'Contact us', ctaBtn2: 'Message on WhatsApp',
         footAbout: 'Vilcabamba Adventist Community Center. We promote whole-person health —body, mind and spirit— serving the community and the world.',
         footExplore: 'Explore', footResources: 'Resources', footContact: 'Contact us',
         fInicio: 'Home', fAbout: 'About', fPrograms: 'Programs', fEvents: 'Events',
@@ -308,11 +287,8 @@ class Component extends DCLogic {
       }
     };
     const active = '#1C3A2A', activeC = '#FFFFFF', inact = 'transparent', inactC = '#5B6B5E';
-    const waText = encodeURIComponent(isEs
-      ? 'Hola VACC, quiero reservar mi cupo para el Taller de Panadería Comercial Saludable.'
-      : 'Hi VACC, I would like to reserve a spot for the Healthy Commercial Baking Workshop.');
     return {
-      t: STR[lang], waText,
+      t: STR[lang],
       setEs: this.setLang('es'), setEn: this.setLang('en'),
       esBg: isEs ? active : inact, esColor: isEs ? activeC : inactC,
       enBg: !isEs ? active : inact, enColor: !isEs ? activeC : inactC

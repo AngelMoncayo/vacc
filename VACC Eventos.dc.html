@@ -27,6 +27,8 @@
   }
   @media (max-width: 760px) {
     .vacc-foot { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+    .vacc-gal { grid-template-columns: repeat(2, 1fr) !important; grid-auto-rows: 150px !important; }
+    .vacc-gal button { grid-column: span 1 !important; grid-row: span 1 !important; }
   }
   @media (max-width: 560px) {
     .vacc-foot { grid-template-columns: 1fr !important; }
@@ -88,31 +90,14 @@
         <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.upcomingEyebrow }}</span>
       </div>
 
-      <div class="vacc-two" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 60px rgba(28,58,42,0.18); background: #FFF; border: 1px solid rgba(28,58,42,0.08);">
-        <div style="background: #2E5740; min-height: 320px;">
-          <img src="assets/evento-panaderia.png" alt="Taller de Panadería" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-        <div style="padding: 46px 44px; display: flex; flex-direction: column; justify-content: center;">
-          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; color: #C26B41; margin-bottom: 16px;">
-            <span style="width: 7px; height: 7px; border-radius: 50%; background: #C26B41;"></span>{{ t.evKicker }}
-          </span>
-          <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(26px, 3vw, 36px); line-height: 1.12; color: #1C3A2A; margin: 0 0 14px;">{{ t.evTitle }}</h2>
-          <div style="display: flex; flex-direction: column; gap: 9px; margin: 0 0 22px;">
-            <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #4A463C;">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#C26B41" stroke-width="1.7"/><path d="M3 9h18M8 3v4M16 3v4" stroke="#C26B41" stroke-width="1.7" stroke-linecap="round"/></svg>
-              {{ t.evDate }}
-            </span>
-            <span style="display: flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 600; color: #4A463C;">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10z" stroke="#C26B41" stroke-width="1.7"/><circle cx="12" cy="11" r="2.4" stroke="#C26B41" stroke-width="1.7"/></svg>
-              {{ t.evPlace }}
-            </span>
-          </div>
-          <p style="font-size: 15.5px; line-height: 1.65; color: #5A554A; margin: 0 0 26px;">{{ t.evDesc }}</p>
-          <a href="https://wa.me/593993714307?text={{ waText }}" target="_blank" rel="noopener" style="display: inline-flex; align-self: flex-start; align-items: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 999px;" style-hover="background: #A8552F;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
-            {{ t.evBtn }}
-          </a>
-        </div>
+      <div style="border-radius: 24px; border: 1.5px dashed rgba(28,58,42,0.22); background: #FFF; padding: 64px 40px; text-align: center; box-shadow: 0 10px 30px rgba(28,58,42,0.05);">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" style="margin-bottom: 20px;"><rect x="3" y="5" width="18" height="16" rx="2.5" stroke="#C26B41" stroke-width="1.6"/><path d="M3 9.5h18M8 3v4M16 3v4" stroke="#C26B41" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="15" r="2.2" fill="#D6A249"/></svg>
+        <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(24px, 3vw, 34px); line-height: 1.15; color: #1C3A2A; margin: 0 0 12px; text-wrap: balance;">{{ t.soonTitle }}</h2>
+        <p style="font-size: 16px; line-height: 1.65; color: #6E685B; margin: 0 auto 28px; max-width: 520px;">{{ t.soonDesc }}</p>
+        <a href="https://wa.me/593993714307?text={{ soonWa }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 9px; background: #C26B41; color: #FFF; text-decoration: none; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 999px;" style-hover="background: #A8552F;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFF"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+          {{ t.soonBtn }}
+        </a>
       </div>
     </div>
   </section>
@@ -155,6 +140,35 @@
       </div>
     </div>
   </section>
+
+  <section class="vacc-sec" style="background: #F6F1E7; padding: 90px 0; border-top: 1px solid rgba(28,58,42,0.08);">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 32px;">
+      <div style="display: inline-flex; align-items: center; gap: 9px; margin-bottom: 18px;">
+        <span style="width: 26px; height: 1.5px; background: #C26B41;"></span>
+        <span style="font-size: 12px; letter-spacing: 2.2px; text-transform: uppercase; font-weight: 700; color: #C26B41;">{{ t.galEyebrow }}</span>
+      </div>
+      <h2 style="font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(28px, 3.4vw, 40px); line-height: 1.1; color: #1C3A2A; margin: 0 0 12px; text-wrap: balance;">{{ t.galTitle }}</h2>
+      <p style="font-size: 16px; line-height: 1.65; color: #6E685B; margin: 0 0 38px; max-width: 620px;">{{ t.galDesc }}</p>
+
+      <div class="vacc-gal" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 14px;">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="9">
+          <button onClick="{{ g.open }}" style="border: none; padding: 0; cursor: zoom-in; border-radius: 16px; overflow: hidden; background: #2E5740; grid-column: span {{ g.colSpan }}; grid-row: span {{ g.rowSpan }}; box-shadow: 0 6px 18px rgba(28,58,42,0.1); position: relative;">
+            <img src="{{ g.src }}" alt="{{ g.alt }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease;" style-hover="transform: scale(1.06);">
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeLightbox }}" style="position: fixed; inset: 0; z-index: 200; background: rgba(20,40,28,0.92); display: flex; align-items: center; justify-content: center; padding: 4vw; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);">
+      <button onClick="{{ prevImg }}" style="position: absolute; left: 3vw; top: 50%; transform: translateY(-50%); border: none; cursor: pointer; width: 52px; height: 52px; border-radius: 50%; background: rgba(246,241,231,0.12); color: #F6F1E7; font-size: 24px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(246,241,231,0.24);">‹</button>
+      <img src="{{ lightboxSrc }}" alt="" style="max-width: 90vw; max-height: 86vh; object-fit: contain; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.5);">
+      <button onClick="{{ nextImg }}" style="position: absolute; right: 3vw; top: 50%; transform: translateY(-50%); border: none; cursor: pointer; width: 52px; height: 52px; border-radius: 50%; background: rgba(246,241,231,0.12); color: #F6F1E7; font-size: 24px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(246,241,231,0.24);">›</button>
+      <button onClick="{{ closeLightbox }}" style="position: absolute; top: 3vh; right: 3vw; border: none; cursor: pointer; width: 44px; height: 44px; border-radius: 50%; background: rgba(246,241,231,0.12); color: #F6F1E7; font-size: 20px; display: flex; align-items: center; justify-content: center;" style-hover="background: rgba(246,241,231,0.24);">✕</button>
+      <span style="position: absolute; bottom: 3vh; left: 0; right: 0; text-align: center; color: rgba(246,241,231,0.7); font-size: 13px; letter-spacing: 0.5px;">{{ lightboxCounter }}</span>
+    </div>
+  </sc-if>
 
   <section style="background: #1C3A2A; color: #F6F1E7; padding: 96px 0;">
     <div style="max-width: 820px; margin: 0 auto; padding: 0 32px; text-align: center;">
@@ -222,7 +236,30 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { lang: this._initLang() };
+  state = { lang: this._initLang(), lightboxOpen: false, lightboxIndex: 0 };
+
+  _gallery = [
+    { src: 'assets/eventos/panaderia/01-grupo.jpg', alt: 'Grupo de participantes del taller de panadería', big: true },
+    { src: 'assets/eventos/panaderia/02-chef-demo.jpeg', alt: 'Chef demostrando la preparación' },
+    { src: 'assets/eventos/panaderia/06-pan-bandeja.png', alt: 'Bandeja de panes recién horneados' },
+    { src: 'assets/eventos/panaderia/03-amasado.jpeg', alt: 'Participantes amasando la masa' },
+    { src: 'assets/eventos/panaderia/04-manos.png', alt: 'Manos en la masa, aprendiendo la técnica' },
+    { src: 'assets/eventos/panaderia/07-moldes.png', alt: 'Masas en moldes listas para hornear', big: true },
+    { src: 'assets/eventos/panaderia/09-trenza.png', alt: 'Pan trenzado terminado' },
+    { src: 'assets/eventos/panaderia/08-postres.png', alt: 'Preparación de postres saludables' },
+    { src: 'assets/eventos/panaderia/05-sonrisa.png', alt: 'Participante con su producto terminado' }
+  ];
+
+  openLightbox = (i) => () => this.setState({ lightboxOpen: true, lightboxIndex: i });
+  closeLightbox = () => this.setState({ lightboxOpen: false });
+  prevImg = (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ lightboxIndex: (s.lightboxIndex - 1 + this._gallery.length) % this._gallery.length })); };
+  nextImg = (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState((s) => ({ lightboxIndex: (s.lightboxIndex + 1) % this._gallery.length })); };
+  _onKey = (e) => {
+    if (!this.state.lightboxOpen) return;
+    if (e.key === 'Escape') this.closeLightbox();
+    else if (e.key === 'ArrowLeft') this.prevImg();
+    else if (e.key === 'ArrowRight') this.nextImg();
+  };
 
   _initLang() {
     try { return localStorage.getItem('vaccLang') === 'en' ? 'en' : 'es'; } catch (e) { return 'es'; }
@@ -253,24 +290,36 @@ class Component extends DCLogic {
       });
     } catch (e) {}
   };
-  componentDidMount() { this._externalize(); this._fallbackImages(); }
+  componentDidMount() { this._externalize(); this._fallbackImages(); document.addEventListener('keydown', this._onKey); }
+  componentWillUnmount() { document.removeEventListener('keydown', this._onKey); }
   componentDidUpdate() { this._externalize(); }
 
   renderVals() {
     const lang = this.state.lang;
     const isEs = lang === 'es';
+    const gallery = this._gallery.map((g, i) => ({
+      src: g.src, alt: g.alt,
+      colSpan: g.big ? 2 : 1, rowSpan: g.big ? 2 : 1,
+      open: this.openLightbox(i)
+    }));
     const STR = {
       es: {
         navHome: 'Inicio', navAbout: 'Conócenos', navPrograms: 'Programas', navEvents: 'Eventos', navResources: 'Recursos', navNews: 'Noticias', navMission: 'Mission Trip', navContact: 'Contacto', ctaWrite: 'Escríbenos',
         heroEyebrow: 'Eventos', heroTitle: 'Encuentros que inspiran y transforman',
         heroSub: 'Cada evento está diseñado para que vivas una experiencia significativa: aprender con calidad, nutrirte de conocimiento útil y transformar tus hábitos hacia un estilo de vida más saludable y consciente.',
         upcomingEyebrow: 'Próximo evento',
+        soonTitle: 'Pronto anunciaremos nuestro próximo evento',
+        soonDesc: 'Estamos planificando nuevos talleres y encuentros para la comunidad. Escríbenos por WhatsApp y te avisaremos cuando abramos las inscripciones.',
+        soonBtn: 'Quiero que me avisen',
         evKicker: 'Inscripciones abiertas', evTitle: 'Taller de Panadería Comercial Saludable',
         evDate: 'Domingo 28 de junio · 9h00 · Costo $10',
         evPlace: 'El Atillo, vía a Yamburara Alto — Vilcabamba',
         evDesc: 'Ven, aprende y llévate tu propio producto. Una jornada práctica para preparar panes nutritivos, sin aditivos y con mucho amor. Cupos limitados.',
         evBtn: 'Reservar mi cupo',
         pastEyebrow: 'Eventos pasados',
+        galEyebrow: 'Galería del evento',
+        galTitle: 'Taller de Panadería Comercial Saludable',
+        galDesc: 'Una jornada llena de aprendizaje, manos en la masa y productos hechos con amor. Así vivimos juntos este taller en el Centro Comunitario.',
         past1tag: 'Nutrición', past1title: 'Talleres de Cocina Saludable', past1desc: 'Encuentros prácticos para aprender a preparar alimentos nutritivos y deliciosos en familia.',
         past2tag: 'Comunidad', past2title: 'Feria de la Salud', past2desc: 'Jornadas para las familias que promueven la salud integral y el cuidado mutuo en la comunidad.',
         past3tag: 'Prevención', past3title: 'Talleres Preventivos contra la Violencia', past3desc: 'Espacios de formación y diálogo para construir entornos más seguros, sanos y respetuosos.',
@@ -288,12 +337,18 @@ class Component extends DCLogic {
         heroEyebrow: 'Events', heroTitle: 'Gatherings that inspire and transform',
         heroSub: 'Every event is designed for a meaningful experience: learning with quality, gaining useful knowledge and transforming your habits toward a healthier, more conscious lifestyle.',
         upcomingEyebrow: 'Upcoming event',
+        soonTitle: 'Our next event will be announced soon',
+        soonDesc: 'We are planning new workshops and gatherings for the community. Message us on WhatsApp and we will let you know when registration opens.',
+        soonBtn: 'Notify me',
         evKicker: 'Registration open', evTitle: 'Healthy Commercial Baking Workshop',
         evDate: 'Sunday, June 28 · 9:00 AM · $10',
         evPlace: 'El Atillo, road to Yamburara Alto — Vilcabamba',
         evDesc: 'Come, learn and take your own product home. A hands-on session to make nutritious breads, free of additives and full of love. Limited spots.',
         evBtn: 'Reserve my spot',
         pastEyebrow: 'Past events',
+        galEyebrow: 'Event gallery',
+        galTitle: 'Healthy Commercial Baking Workshop',
+        galDesc: 'A day full of learning, hands in the dough and products made with love. This is how we lived this workshop together at the Community Center.',
         past1tag: 'Nutrition', past1title: 'Healthy Cooking Workshops', past1desc: 'Hands-on gatherings to learn how to prepare nutritious, delicious food as a family.',
         past2tag: 'Community', past2title: 'Health Fair', past2desc: 'Family gatherings that promote whole-person health and mutual care in the community.',
         past3tag: 'Prevention', past3title: 'Preventive Workshops against Violence', past3desc: 'Training and dialogue spaces to build safer, healthier and more respectful environments.',
@@ -310,9 +365,16 @@ class Component extends DCLogic {
     const active = '#1C3A2A', activeC = '#FFFFFF', inact = 'transparent', inactC = '#5B6B5E';
     const waText = encodeURIComponent(isEs
       ? 'Hola VACC, quiero reservar mi cupo para el Taller de Panadería Comercial Saludable.'
-      : 'Hi VACC, I would like to reserve a spot for the Healthy Commercial Baking Workshop.');
-    return {
+      : 'Hi VACC, I would like to reserve a spot for the Healthy Commercial Baking Workshop.');    return {
       t: STR[lang], waText,
+      gallery,
+      soonWa: encodeURIComponent(isEs
+        ? 'Hola VACC, quiero que me avisen cuando anuncien el próximo evento.'
+        : 'Hi VACC, please let me know when you announce the next event.'),
+      lightboxOpen: this.state.lightboxOpen,
+      lightboxSrc: this._gallery[this.state.lightboxIndex].src,
+      lightboxCounter: (this.state.lightboxIndex + 1) + ' / ' + this._gallery.length,
+      closeLightbox: this.closeLightbox, prevImg: this.prevImg, nextImg: this.nextImg,
       setEs: this.setLang('es'), setEn: this.setLang('en'),
       esBg: isEs ? active : inact, esColor: isEs ? activeC : inactC,
       enBg: !isEs ? active : inact, enColor: !isEs ? activeC : inactC
